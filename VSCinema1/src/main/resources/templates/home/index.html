@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<title>Trang chủ Vina Cinema</title>
+</head>
+<body>
+	<!-- main-slider -->
+	<section class="w3l-main-slider position-relative" id="home">
+		<div class="companies20-content">
+			<div class="owl-one owl-carousel owl-theme">
+				<div class="item" th:each="item:${comingsoon}">
+					<div class="img-overlay">
+						<img class="img-fluid"
+							th:src="@{|/assets/images/image/movies/banners/*{item.banner}|}">
+					</div>
+					<div class="slider-info">
+						<div class="banner-info">
+							<h4>[[*{item.name}]]</h4> </br>
+							<a th:href="@{|/movie/film-detail/${item.id}|}" class="popup-with-zoom-anim play-view1">
+								<span class="video-play-icon"> <span class="fa fa-info"></span>
+							</span>
+								<h6>Xem chi tiết</h6>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //banner-slider-->
+	<!-- main-slider -->
+
+	<!--grids-sec1-->
+	<!-- Phim đang chiếu -->
+	<section class="w3l-grids">
+		<div class="grids-main py-5">
+			<div class="container py-lg-3">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title">Phim đang chiếu</h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4>
+								<a class="show-title" href="">Hiển thị tất cả</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="owl-three owl-carousel owl-theme">
+					<div class="item vhny-grid" th:each="s: ${movies}">
+						<div class="box16 mb-0">
+							<a th:href="@{|/movie/film-detail/${s.id}|}">
+								<figure>
+									<img class="img-fluid"
+										th:src="@{|/assets/images/image/movies/posters/${s.poster}|}" alt="">
+								</figure>
+								<div class="box-content">
+									<h3 class="title">[[*{s.name}]]</h3>
+									<h4>
+										<span class="post" style="font-size: 15px"><span
+											class="fa fa-clock-o" style="font-size: 17px"> </span>
+											[[${#dates.hour(s.runningTime)}]] giờ
+											[[${#dates.minute(s.runningTime)}]] phút</span>
+									</h4>
+								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- / Phim đang chiếu -->
+	<!--//grids-sec1-->
+
+	<!--grids-sec2-->
+	<section class="w3l-grids">
+		<div class="grids-main py-5">
+			<div class="container py-lg-3">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title">Danh sách sản phẩm khuyến mãi</h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4>
+								<a class="show-title" href="/movie/film-list">Hiển thị tất
+									cả</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="owl-three owl-carousel owl-theme">
+					<div class="item vhny-grid" th:each="s: ${sales}">
+						<div class="box16 mb-0">
+							<a th:href="@{|/food/booking-food|}">
+								<figure>
+									<img class="img-fluid1"
+										th:src="@{|/assets/images/image/foods/${s.food.image}|}"
+										alt="">
+								</figure>
+								<div class="box-content">
+									<h4>
+										<span class="post"><span class="mx-auto">Giảm
+												đến </span> [[*{s.discount}]] %</span>
+									</h4>
+								</div>
+							</a>
+						</div>
+
+						<h3>
+							<a class="title-gd" th:href="@{|/food/booking-food|}">[[*{s.food.name}]]</a>
+						</h3>
+						<p>[[*{s.food.description}]]</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!--grids-sec2-->
+	<!--mid-slider -->
+	<section class="w3l-mid-slider position-relative">
+		<div class="companies20-content">
+			<div class="owl-mid owl-carousel owl-theme">
+				<div class="item">
+					<li>
+						<div class="slider-info mid-view bg bg2">
+							<div class="container">
+								<div class="mid-info">
+									<span class="sub-text">Comedy</span>
+									<h3>Jumanji: The Next Level</h3>
+									<p>2019 ‧ Comedy/Action ‧ 2h 3m</p>
+									<a class="watch" href="genre.html"><span class="fa fa-play"
+										aria-hidden="true"></span> Xem Trailers</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="item">
+					<li>
+						<div class="slider-info mid-view mid-top1 bg bg2">
+							<div class="container">
+								<div class="mid-info">
+									<span class="sub-text">Adventure</span>
+									<h3>Dolittle</h3>
+									<p>2020 ‧ Family/Adventure ‧ 1h 41m</p>
+									<a class="watch" href="genre.html"><span class="fa fa-play"
+										aria-hidden="true"></span> Xem Trailers</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="item">
+					<li>
+						<div class="slider-info mid-view mid-top2 bg bg2">
+							<div class="container">
+								<div class="mid-info">
+									<span class="sub-text">Action</span>
+									<h3>Bad Boys for Life</h3>
+									<p>2020 ‧ Comedy/Action ‧ 2h 4m</p>
+									<a class="watch" href="genre.html"><span class="fa fa-play"
+										aria-hidden="true"></span> Xem Trailers</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //mid-slider-->
+</body>
+</html>

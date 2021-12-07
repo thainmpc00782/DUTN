@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<h3 class="card-title">
+		<i class="fas fa-calendar-week nav-icon"></i> Mã giảm giá
+	</h3>
+	<div class="card-tools">
+		<ul class="nav nav-tabs " id="myTab" role="tablist">
+			<li class="nav-item btn-outline-light font-weight-bold"
+				role="presentation"><a href="" class="nav-link active"
+				style="color: red;" id="edit-tab" data-toggle="tab"
+				data-target="#edit" role="tab" aria-controls="edit"
+				aria-selected="true">Tạo mã giảm giá</a></li>
+			<li class="nav-item btn-outline-light font-weight-bold"
+				role="presentation"><a class="nav-link" href="" id="list-tab"
+				style="color: red;" data-toggle="tab" data-target="#list" role="tab"
+				aria-controls="list" aria-selected="false">Danh sách mã giảm giá</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /.card-header -->
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="edit" role="tabpanel"
+		aria-labelledby="edit-tab">
+		<div ng-include="'/assets/admin/coupon_code/_form.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="list" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/coupon_code/_table.html'"></div>
+	</div>
+
+</div>

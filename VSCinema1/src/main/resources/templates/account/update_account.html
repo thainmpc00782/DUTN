@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Trang thông tin người dùng</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/assets/css/signup.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" type="text/css"
+	href="/assets/css/update_account.css">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style type="text/css">
+label, a, h3, h4, h6, button, input, p {
+	font-family: 'Dancing Script', cursive;
+}
+</style>
+</head>
+<body ng-app="update-app" ng-controller="update-ctrl">
+	<div class="container">
+		<br> <br> <br> <br> <br>
+		<div class="row gutters">
+			<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="single_advisor_profile wow fadeInUp"
+						data-wow-delay="0.2s"
+						style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+						<!-- Team Thumb-->
+						<div class="advisor_thumb">
+							<img ng-src="/assets/images/image/avatar/{{account.image}}"
+								alt="">
+						</div>
+						<!-- Team Details-->
+						<div class="single_advisor_details_info">
+							<h6 style="color: white;">{{fullname}}</h6>
+							<p style="color: white;" class="designation">{{account.username}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+				<div class="card h-100">
+					<div class="card-body">
+						<div class="row gutters">
+							<br> <br> <br>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<h4 class="mb-3 text-primary">Thông tin cá nhân</h4>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="fullName">Họ và tên:</label> <input type="text"
+										ng-model="account.fullname" class="form-control" id="fullName"
+										placeholder="Nhập họ và tên">
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="eMail">Email:</label> <input type="email"
+										ng-model="account.email" class="form-control" id="eMail"
+										placeholder="Nháº­p email ID">
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="phone">Số điện thoại:</label> <input type="text"
+										ng-model="account.phone" class="form-control" id="phone"
+										placeholder="Nhập số điện thoại">
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="cmnd">Số CMND:</label> <input type="text"
+										ng-model="account.cmnd" class="form-control" id="cmnd"
+										placeholder="Nhập số CMND">
+								</div>
+							</div>
+						</div>
+						<div class="row gutters">
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="address">Địa chỉ:</label> <input type="text"
+										ng-model="account.address" class="form-control" id="address"
+										placeholder="Nhập địa chỉ">
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="ciTy">Giới tính:</label>
+									<div class="form-control">
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" name="gender" ng-model="account.gender"
+												ng-value="false" class="custom-control-input"
+												id="customRadioInline1" required> <label
+												class="custom-control-label" for="customRadioInline1">Nam</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" name="gender" ng-model="account.gender"
+												ng-value="true" class="custom-control-input"
+												id="customRadioInline2"> <label
+												class="custom-control-label" for="customRadioInline2">Nữ</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row gutters">
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<div class="text-right">
+									<button type="button" id="submit" name="submit"
+										class="btn btn-secondary">Mới</button>
+									<button type="button" ng-click="update()"
+										class="btn btn-primary">Cập nhật</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/js/update_account.js"></script>
+</body>
+</html>

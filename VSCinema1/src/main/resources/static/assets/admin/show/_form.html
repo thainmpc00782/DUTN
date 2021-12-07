@@ -1,0 +1,77 @@
+<meta charset="utf-8">
+<div class="card">
+	
+	<div class="card-body">
+		<div class="row">
+			<div class="col-6 row">
+				<div class="form-group col-12">
+					<label class="">Phim</label> <select ng-model="form.movie.id"
+						ng-change="starttimechange()" class="form-control ">
+						<option ng-repeat="m in movies" ng-value="{{m.id}}">{{m.name}}</option>
+					</select>
+					<p ng-show="errors.movie != ''" class="errors">{{errors.movie}}</p>
+				</div>
+				<div class="form-group col-12">
+					<label>Thành Phố</label> <select ng-change="findRapFromCity()"
+						id="city" ng-model="form.room.cinema.city.id"
+						class="form-control ">
+						<option ng-repeat="ct in cities" ng-value="ct.id">{{ct.name}}</option>
+
+					</select>
+					<p ng-show="errors.city != ''" class="errors">{{errors.city}}</p>
+				</div>
+				<div class="form-group col-12">
+					<label>Rạp</label> <select ng-change="findByCinema()"
+						ng-model="form.room.cinema.id" class="form-control ">
+						<option ng-repeat="ci in cinemas" ng-value="{{ci.id}}">{{ci.name}}</option>
+					</select>
+					<p ng-show="errors.cinema != ''" class="errors">{{errors.cinema}}</p>
+				</div>
+
+				<div class="form-group col-12">
+					<label>Phòng</label> <select ng-model="form.room.id"
+						class="form-control ">
+						<option ng-repeat="r in rooms" ng-value="{{r.id}}">{{r.name}}</option>
+					</select>
+					<p ng-show="errors.room != ''" class="errors">{{errors.room}}</p>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label>Ngày chiếu</label> <input ng-model="form.showDate"
+						ng-change="showDates()" type="date" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Giờ bắt đầu</label> <input ng-change="starttimechange()"
+						ng-model="form.startTime" type="time" class="form-control">
+
+				</div>
+				<div class="form-group">
+					<label>Giờ kết thúc</label> <input readonly="readonly"
+						ng-model="endtime" type="time" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Giá</label> <select ng-model="form.priceShow.id"
+						class="form-control ">
+						<option ng-repeat="rs in price_show" ng-value="{{rs.id}}">{{rs.price}}</option>
+					</select>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<div class="form-group" style="margin-left: 20px;">
+		<button type="button" ng-click="create()"
+			class="btn btn-success font-weight-bold">Thêm</button>
+		<button type="button" ng-click="update()"
+			class="btn btn-info font-weight-bold" style="width: 90px">Cập
+			Nhật</button>
+		<button type="button" class="btn btn-danger font-weight-bold">Xóa</button>
+		<button type="button" class="btn btn-warning font-weight-bold"
+			ng-click="reset()">Mới</button>
+	</div>
+</div>
+<div class="card-footer">Thông tin chi tiết suất chiếu!</div>
+

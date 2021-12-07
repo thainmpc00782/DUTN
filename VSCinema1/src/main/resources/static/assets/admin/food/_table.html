@@ -1,0 +1,59 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title">
+		<input class="form-control mr-sm-4" type="search"
+			placeholder="Tìm sản phẩm theo tên, giá" aria-label="Search"
+			ng-model="search">
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="col-1">ID</th>
+				<th class="col-2">Tên đồ ăn</th>
+				<th class="col-2">Mô tả</th>
+				<th class="col-1">Giá bán</th>
+				<th class="col-3">Rạp phim</th>
+				<th class="col-2">Trạng thái</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in pager.items | filter:search">
+				<th scope="row">{{item.id}}</th>
+				<td>{{item.name}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.price}}</td>
+				<td>{{item.cinema.name}}</td>
+				<td>{{item.active?'Đang bán':'Ngưng bán'}}</td>
+				<td><button ng-click="edit(item)" class="btn btn-success"
+						style="width: 100px">Tùy chỉnh</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div class="d-flex justify-content-center">
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.first()" title="Trở về trang đầu tiên ?">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.prev()" title="Lùi về trang trước đó ?">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.next()" title="Tiến lên trang tiêp theo ?">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.last()" title="Tiến đến trang cuối cùng ?">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<div class="card-footer">Danh sách sản phẩm</div>

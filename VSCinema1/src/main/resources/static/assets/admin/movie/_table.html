@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+	<div class="card-header">
+		<div class="card-title">
+				<input class="form-control mr-sm-4" type="search"
+					placeholder="TÃ¬m phim theo tÃªn" aria-label="Search"
+					ng-model="search">		
+		</div>
+	</div>
+	<div class="card-body">
+		<table class="table  table-bordered">
+			<thead>
+				<tr>
+					<th class="col-1">ID</th>
+					<th class="col-2">Tên phim</th>
+					<th class="col-2">Ngày công chiếu</th>
+					<th class="col-1">Thể loại</th>
+					<th class="col-3">Đạo diễn</th>
+					<th class="col-2">Trạng thái</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in pager.items | filter:search">
+					<th scope="row">{{item.id}}</th>
+					<td>{{item.name}}</td>
+					<td>{{item.releaseDate | date: 'dd/MM/yyyy'}}</td>
+					<td>{{item.genre.name}}</td>
+					<td>{{item.director}}</td>
+					<td>{{item.activity?'Đang chiếu':'Ngưng chiếu'}}</td>
+					<td><button ng-click="edit(item)" class="btn btn-success" style="width: 100px">Tùy chỉnh</button> </td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<div  class="d-flex justify-content-center" >
+			<button type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+				ng-click="pager.first()" title="Trở về trang đầu tiên?">
+				<i class="fas fa-hand-point-left"></i>
+			</button>
+			<button type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+				ng-click="pager.prev()" title="Lùi về trang trước đó ?">
+				<i class="fas fa-arrow-circle-left"></i>
+			</button>
+			<button type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+				ng-click="pager.next()" title="Tiến lên trang trước đó ?">
+				<i class="fas fa-arrow-circle-right"></i>
+			</button>
+			<button type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+				ng-click="pager.last()" title="Tiến đến trang cuồi cùng ?">
+				<i class="fas fa-hand-point-right"></i>
+			</button>
+		</div>
+	</div>
+	<div class="card-footer">Danh sách phim</div>

@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="form-inline my-2 my-lg-0 col-3">
+			<input class="form-control mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search" ng-model="search">
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Tên sản phẩm</th>
+				<th scope="col">Giá</th>
+				<th scope="col">Ngày tạo</th>
+				<th scope="col">Trạng thái</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="p in pager2.foods | filter:{name:search}">
+				<th scope="row">{{p.id}}</th>
+				<td>{{p.name}}</td>
+				<td>{{p.price}}</td>
+				<td>{{p.createdate}}</td>
+				<td>{{p.active ?'Hoạt động' : 'Không hoạt động'}}</td>
+				<td><button type="button" ng-click="editFood(p)"
+						class="btn btn-success font-weight-bold">View</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button type="button" ng-click="pager2.first()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button" ng-click="pager2.pre()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button" ng-click="pager2.next()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button" ng-click="pager2.last()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<div class="card-footer">Danh sách sản phẩm</div>

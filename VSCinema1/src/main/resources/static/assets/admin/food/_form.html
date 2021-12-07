@@ -1,0 +1,87 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-3">
+			<div class="border p-3">
+				<div class="container-fluid">
+					<br> <label for="image"><img class="card-img-top"
+						alt="loading"
+						ng-src="{{'/assets/images/image/foods/' + form.image}}"
+						width="200px" height="200px"></label> <input type="file"
+						class="form-control" id="image"
+						onchange="angular.element(this).scope().imageChanged(this.files)">
+				</div>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Tên đồ ăn</label> <input
+					type="text" class="form-control" ng-model="form.name" id="name"
+					placeholder="Tên sản phẩm">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Tỉnh / Thành phố</label> <select
+					ng-change="findCinemaFromCity()" ng-model="form.cinema.city.id"
+					class="form-control" id="city">
+					<option value="">Chọn tỉnh / thành phố</option>
+					<option ng-repeat="ct in city" ng-value="ct.id">{{ct.name}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Ngày tạo</label>
+				<div class="form-control" id="createdate">{{form.createdate|date:
+					'dd/MM/yyyy'}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Mô tả</label>
+				<textarea class="form-control" rows="2" placeholder="Mô tả"
+					ng-model="form.description" id="description"></textarea>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Giá bán</label> <input type="text"
+					class="input-price form-control" ng-model="form.price" id="price"
+					placeholder="Giá bán">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Rạp phim</label> <select
+					ng-model="form.cinema.id" class="form-control" id="cinema">
+					<option value="">Chọn rạp phim</option>
+					<option ng-repeat="cn in cinema" ng-value="cn.id">{{cn.name}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Trạng thái</label>
+				<div class="form-control">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio"
+							name="inlineRadioOptions" id="active" ng-value="true"
+							ng-model="form.active"> <label class="form-check-label"
+							for="inlineRadio1">Đang bán</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio"
+							name="inlineRadioOptions" id="active" ng-value="false"
+							ng-model="form.active"> <label class="form-check-label"
+							for="inlineRadio2">Ngưng bán</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group">
+			<button type="button" style="width: 90px"
+				class="btn btn-success font-weight-bold" ng-click="create()"
+				ng-disabled="isEdit" title="Tạo mới sản phẩm ?">Thêm</button>
+			<button type="button" style="width: 90px"
+				class="btn btn-info font-weight-bold" ng-click="update()"
+				ng-disabled="isLoad" title="Cập nhật sản phẩm ?">Cập nhật</button>
+			<button type="button" class="btn btn-warning font-weight-bold"
+				ng-click="reset()" title="Xóa trắng form nhập ?">Mới</button>
+		</div>
+	</div>
+</div>
+
+<div class="card-footer">Vui lòng nhập thông tin của đồ ăn</div>

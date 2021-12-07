@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box
+}
+
+.bodyO {
+    background-color: #fff;
+    font-family: arial
+}
+
+.fl-leftO {
+    float: left
+}
+
+.fl-rightO {
+    float: right
+}
+
+.h1O {
+    text-transform: uppercase;
+    font-weight: 900;
+    border-left: 10px solid #fec500;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    margin-left: 25px;
+}
+
+.rowO {
+    overflow: hidden
+}
+
+.cardO {
+    display: table-row;
+    width: 45%;
+    border: 2px solid;
+    background-color: #fff;
+    color: #989898;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-left: 50px;
+    position: relative
+}
+
+.cardO +.cardO {
+    margin-left: 2%;
+}
+
+.dateO {
+    display: table-cell;
+    width: 25%;
+    position: relative;
+    text-align: center;
+    border-right: 2px dashed #dadde6
+}
+
+.dateO:before,
+.dateO:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 1;
+    border-radius: 50%
+}
+
+.dateO:after {
+    top: auto;
+    bottom: -15px
+}
+
+.dateO time {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.dateO time span {
+    display: block
+}
+
+.dateO time span:first-child {
+    color: #2b2b2b;
+    font-weight: 600;
+    font-size: 250%
+}
+
+.dateO time span:last-child {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: -10px
+}
+
+.card-contO {
+    display: table-cell;
+    width: 75%;
+    font-size: 85%;
+    padding: 10px 10px 30px 50px
+}
+
+.card-contO h3 {
+    color: #3C3C3C;
+    font-size: 130%
+}
+
+.rowO:last-child .cardO:last-of-type .card-contO h3 {
+    text-decoration: line-through
+}
+
+.card-contO>div {
+    display: table-row
+}
+
+.card-contO .even-dateO i,
+.card-contO .even-infoO i,
+.card-contO .even-dateO time,
+.card-contO .even-infoO p {
+    display: table-cell
+}
+
+.card-contO .even-dateO i,
+.card-contO .even-infoO i {
+    padding: 5% 5% 0 0
+}
+
+.card-contO .even-infoO p {
+    padding: 30px 50px 0 0
+}
+
+.card-contO .even-dateO time span {
+    display: block
+}
+
+.card-contO a {
+    display: block;
+    text-decoration: none;
+    width: 80px;
+    height: 30px;
+    background-color: #D8DDE0;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px
+}
+
+.rowO:last-child .cardO:first-child .card-contO a {
+    background-color: #037FDD
+}
+
+.rowO:last-child .cardO:last-child a {
+    background-color: #F8504C
+}
+
+@media screen and (max-width: 860px) {
+    .cardO {
+        display: block;
+        float: none;
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .cardO+.cardO {
+        margin-left: 0;
+    }
+    .card-contO .even-dateO,
+    .card-contO .even-infoO {
+        font-size: 75%
+    }
+}

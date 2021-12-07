@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<h3 class="card-title">
+		<i class="fas fa-key"></i> Kiểm duyệt
+	</h3>
+	<div class="card-tools">
+		<ul class="nav nav-tabs ml-auto" id="myTab" role="tablist">
+			<li class="nav-item font-weight-bold" role="presentation"><a
+				href="" class="nav-link active" id="edit-tab" data-toggle="tab"
+				data-target="#edit" style="color: red;" role="tab"
+				aria-controls="edit" aria-selected="true">Tùy chỉnh</a></li>
+			<li class="nav-item font-weight-bold" role="presentation"><a
+				href="" class="nav-link" id="listsales-tab" data-toggle="tab"
+				data-target="#listsales" role="tab" aria-controls="listsales"
+				style="color: red;" aria-selected="false">Danh sách suất chiếu</a></li>
+			<li class="nav-item font-weight-bold" role="presentation"><a
+				href="" class="nav-link" id="list-tab" data-toggle="tab"
+				style="color: red;" data-target="#list" role="tab"
+				aria-controls="listfoods" aria-selected="false">Danh sách kiểm
+					duyệt</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /.card-header -->
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="edit" role="tabpanel"
+		aria-labelledby="edit-tab">
+		<div ng-include="'/assets/admin/censor/_form.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="listsales" role="tabpanel"
+		aria-labelledby="listsales-tab">
+		<div ng-include="'/assets/admin/censor/_table.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="list" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/censor/_table2.html'"></div>
+	</div>
+
+</div>

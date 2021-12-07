@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<h3 class="card-title">
+		<i class="fas fa-receipt nav-icon"></i> Hóa đơn
+	</h3>
+	<div class="card-tools">
+		<ul class="nav nav-tabs " id="myTab" role="tablist">
+			<li class="nav-item btn-outline-light font-weight-bold"
+				role="presentation"><a href="" class="nav-link active"
+				id="edit-tab" data-toggle="tab" data-target="#edit"
+				style="color: red;" role="tab" aria-controls="edit"
+				aria-selected="true">Xem hóa đơn</a></li>
+			<li class="nav-item btn-outline-light font-weight-bold"
+				role="presentation"><a class="nav-link" href="" id="list-tab"
+				style="color: red;" data-toggle="tab" data-target="#list" role="tab"
+				aria-controls="list" aria-selected="false">Danh sách hóa đơn</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /.card-header -->
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="edit" role="tabpanel"
+		aria-labelledby="edit-tab">
+		<div ng-include="'/assets/admin/order/_form.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="list" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/order/_table.html'"></div>
+	</div>
+
+</div>

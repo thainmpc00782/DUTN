@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign Up Page</title>
+<link rel="stylesheet" type="text/css" href="/assets/css/signup.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style type="text/css">
+label, a, h3, button {
+	font-family: 'Dancing Script', cursive;
+}
+</style>
+</head>
+<body ng-app="signup-app" ng-controller="signup-ctrl">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-xl-9 mx-auto">
+				<div class="card card-signin flex-row my-5 ">
+					<div class="card-img-left d-none d-md-flex">
+						<!-- Background image for card set in CSS! -->
+					</div>
+					<div class="card-body">
+						<h3 class="text-center">Đăng Ký</h3>
+						<form class="form-signin">
+							<div class="form-label-group">
+								<input type="text" ng-model="account.username" id="inputUserame"
+									class="form-control" placeholder="Tài Khoản" required>
+								<label for="inputUserame">Tài Khoản</label>
+							</div>
+							<div class="form-label-group">
+								<input type="password" ng-model="account.password"
+									id="inputPassword" class="form-control" placeholder="Mật Khẩu"
+									required> <label for="inputPassword">Mật Khẩu</label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="password" ng-model="confirmPassword"
+									id="inputConfirmPassword" class="form-control"
+									placeholder="Xác nhận mật khẩu" required> <label
+									for="inputConfirmPassword">Xác nhận mật khẩu</label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="text" ng-model="account.fullname"
+									id="inputFullname" class="form-control" placeholder="Họ và tên"
+									required> <label for="inputFullname">Họ và tên</label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="email" ng-model="account.email" id="inputEmail"
+									class="form-control" placeholder="Địa chỉ Email" required>
+								<label for="inputEmail">Địa chỉ Email </label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="text" ng-model="account.phone"
+									id="inputNumberPhone" class="form-control"
+									placeholder="Số điện thoại" required> <label
+									for="inputNumberPhone">Số điện thoại </label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="text" ng-model="account.cmnd" id="inputCMND"
+									class="form-control" placeholder="CMND" required> <label
+									for="inputCMND">CMND</label>
+							</div>
+
+							<div class="form-label-group">
+								<input type="text" ng-model="account.address" id="inputAddress"
+									class="form-control" placeholder="Địa chỉ" required> <label
+									for="inputAddress">Địa chỉ</label>
+							</div>
+
+							<div class="form-group">
+								<label class="ml-3 mr-3">Giới tính: </label>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" name="gender" ng-model="account.gender"
+										ng-value="false" class="custom-control-input"
+										id="customRadioInline1" required> <label
+										class="custom-control-label" for="customRadioInline1">Nam</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" name="gender" ng-model="account.gender"
+										ng-value="true" class="custom-control-input"
+										id="customRadioInline2"> <label
+										class="custom-control-label" for="customRadioInline2">Nữ</label>
+								</div>
+							</div>
+
+							<button class="btn btn-lg btn-primary btn-block text-uppercase"
+								ng-click="account.create()">Đăng Ký</button>
+							<a class="d-block text-center mt-2 small" href="/security/login/form">Đăng
+								Nhập</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/js/signup.js"></script>
+</body>
+</html>

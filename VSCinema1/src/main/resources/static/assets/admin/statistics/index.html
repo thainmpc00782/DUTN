@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<ul class="nav nav-tabs " id="myTab" role="tablist">
+	<li class="nav-item btn-outline-light font-weight-bold"
+		role="presentation"><a href="" class="nav-link active"
+		id="edit-tab" data-toggle="tab" data-target="#movie"
+		style="color: red;" role="tab" aria-controls="movie"
+		aria-selected="true">Hóa đơn</a></li>
+	<li class="nav-item btn-outline-light font-weight-bold"
+		role="presentation"><a class="nav-link" href="" id="list-tab"
+		style="color: red;" data-toggle="tab" data-target="#food" role="tab"
+		aria-controls="food" aria-selected="false">Thức ăn</a></li>
+	<li class="nav-item btn-outline-light font-weight-bold"
+		role="presentation"><a class="nav-link" href="" id="list-tab"
+		style="color: red;" data-toggle="tab" data-target="#account"
+		role="tab" aria-controls="account" aria-selected="false">Tài khoản</a></li>
+	<li class="nav-item btn-outline-light font-weight-bold"
+		role="presentation"><a class="nav-link" href="" id="list-tab"
+		style="color: red;" data-toggle="tab" data-target="#synthetic"
+		role="tab" aria-controls="synthetic" aria-selected="false">Doanh
+			thu tổng</a></li>
+
+
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="movie" role="tabpanel"
+		aria-labelledby="edit-tab">
+		<div ng-include="'/assets/admin/statistics/movie.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="food" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/statistics/food.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="account" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/statistics/account.html'"></div>
+	</div>
+	<div class="tab-pane fade" id="synthetic" role="tabpanel"
+		aria-labelledby="list-tab">
+		<div ng-include="'/assets/admin/statistics/synthetic.html'"></div>
+	</div>
+</div>

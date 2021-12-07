@@ -1,0 +1,43 @@
+<style type="text/css">
+label, a, h3, button {
+	font-family: 'Open Sans', cursive;
+}
+</style>
+
+<!-- <div class="col-8 offset-2">
+			<table class="columns">
+				<tr class="row col-12">
+					<div id="line_doanhthu_ve_doan_div" style="width: 100%; height: 500px;"></div>
+					<td class="col-6"><div id="piechart_div" class="col-12" style="border: 1px solid #ccc"></div></td>
+					<td class="col-6"><div id="barchart_div" class="col-12" style="border: 1px solid #ccc"></div></td>
+				</tr>
+			</table>
+		</div> -->
+<meta charset="utf-8">
+<div class="col-12 row">
+	<div class="col-12 chart-left-div">
+		<div id="chartSumTicketMovie" ng-init="SumTicketMovie()"
+			style="height: 25em"></div>
+	</div>
+	<div class="col-4 offset-2 chart-left-div">
+		<canvas id="myChart" ng-init="SumRevenuesOf10Years()" class="myChart"></canvas>
+	</div>
+	<div class="col-4 chart-right-div"></div>
+
+	<div class="col-4 offset-2 chart-left-div">
+		<div id="chartContainer" ng-init="SumRevenuesByCinema()"></div>
+	</div>
+	<div class="col-4 chart-right"></div>
+
+	<div class="col-4 offset-2 chart-left-div"></div>
+	<div class="col-4 chart-right"></div>
+
+	<div class="col-4 offset-2 chart-left-div">
+		<div id="chartContainer" style="height: 370px; width: 100;"></div>
+	</div>
+	<div class="col-4 chart-right"></div>
+
+	<div class="col-4 offset-2 chart-left-div"></div>
+	<div class="col-4 chart-right"></div>
+
+</div>

@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<div class="card">
+	<div class="card-header">
+		<div class="card-title row">
+			<input class="form-control " type="search"
+				placeholder="Mã suất chiếu" ng-model="search.show.id"
+				aria-label="Tìm kiếm suất chiếu">
+		</div>
+	</div>
+	<div class="card-body">
+		<table class="table  table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Mã suất chiếu</th>
+					<th scope="col">Người tạo</th>
+					<th scope="col">Người duyệt</th>
+					<th scope="col">Ngày duyệt</th>
+					<th scope="col">Trạng thái</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in pager2.items | filter:search">
+					<td>{{item.id}}</td>
+					<td>{{item.show.id}}</td>
+					<td>{{item.show.user.fullname}}</td>
+					<td>{{item.user.fullname}}</td>
+					<td>{{item.createDate | date:'dd-MM-yyyy'}}</td>
+					<td ng-if="item.status == 2">Đã hủy</td>
+					<td ng-if="item.status == 3">Đã duyệt</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<div style="float: right;">
+			<button ng-click="pager2.first()" type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+				<i class="fas fa-hand-point-left"></i>
+			</button>
+			<button ng-click="pager2.prev()" type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+				<i class="fas fa-arrow-circle-left"></i>
+			</button>
+			<button ng-click="pager2.next()" type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+				<i class="fas fa-arrow-circle-right"></i>
+			</button>
+			<button ng-click="pager2.last()" type="button"
+				class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+				<i class="fas fa-hand-point-right"></i>
+			</button>
+		</div>
+	</div>
+	<div class="card-footer">Danh sách lịch sử kiểm duyệt</div>
+</div>

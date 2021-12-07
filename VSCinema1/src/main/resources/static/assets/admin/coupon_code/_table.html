@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="form-inline my-2 my-lg-0 col-3">
+			<input class="form-control mr-sm-2" type="search" ng-model="search"
+				placeholder="Tìm kiếm" aria-label="Search">
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Ngày tạo</th>
+				<th scope="col">Hạn sử dụng</th>
+				<th scope="col">Giảm giá (%)</th>
+				<th scope="col">Số lượng nhập</th>
+				<th scope="col">Trạng thái</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in pager.items | filter:search ">
+				<th>{{item.id}}</th>
+				<td>{{item.createdate|date:'dd/MM/yyyy'}}</td>
+				<td>{{item.expiry|date:'dd/MM/yyyy'}}</td>
+				<td>{{item.discount}}</td>
+				<td>{{item.quantity}}</td>
+				<td>{{item.activity?'Chưa sử dụng':'Đã sử dụng'}}</td>
+				<td><button ng-click="edit(item)"
+						class="btn btn-success font-weight-bold" style="width: 100px">Tùy
+						chỉnh</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button type="button" ng-click="pager2.first()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button" ng-click="pager2.pre()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button" ng-click="pager2.next()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button" ng-click="pager2.last()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<div class="card-footer">Danh sách mã giảm giá</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(index)">
+<head>
+<meta charset="UTF-8">
+<title>Trang chủ VS Cinema</title>
+
+<!-- Template CSS -->
+<link rel="stylesheet" href="/assets/css/choose-theater.css">
+<link rel="stylesheet" href="/assets/css/film-detail.css">
+<link rel="stylesheet" href="/assets/css/book_tickets.css">
+<link rel="stylesheet" href="/assets/css/ticket2.css">
+<link rel="stylesheet" href="/assets/css/seat2.css">
+<link rel="stylesheet" href="/assets/css/showtimes.css">
+<link rel="stylesheet" href="/assets/css/coupon.css">
+<link rel="stylesheet" href="/assets/css/checkout.css">
+<link rel="stylesheet" href="/assets/css/style-starter.css">
+<link rel="stylesheet" href="/assets/css/order.css">
+<!-- Template CSS -->
+<link href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="/assets/dist/img/titlelogo.png" type="image/icon type">
+<!-- Templete Angular JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+	<div ng-app="booking-ticket-app" ng-controller="booking-ticket-ctrl" class="fluid-container">
+		<div th:replace="/layout/_header.html"></div>
+		<div th:replace="${index}"></div>
+		<div th:replace="/layout/_footer.html"></div>
+		<script src="/js/booking-ticket-app.js"></script>
+	</div>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="/assets/js/food.js"></script>
+	<script src="/assets/js/app.js"></script>
+	<script src="/assets/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/js/easyResponsiveTabs.js"></script>
+	<script src="/assets/js/theme-change.js"></script>
+	<script src="/assets/js/owl.carousel.js"></script>
+	<script src="/assets/js/slider.js"></script>
+	<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/book_tickets.js"></script>
+    <script src="/assets/js/checkout.js"></script>
+    <script src="/assets/js/book_tickets.js"></script>
+    <script src="/assets/js/checkout.js"></script>
+    <script src="/assets/js/choosefood.js"></script>
+</body>
+</html>

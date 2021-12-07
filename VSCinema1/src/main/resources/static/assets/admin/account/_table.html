@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title ">
+		<input ng-model="name" class="form-control mr-sm-4 " type="text"
+			placeholder="Tìm kiếm theo tên">
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered  ">
+		<tr>
+			<th>Id</th>
+			<th>Họ tên</th>
+			<th>SĐT</th>
+			<th>Email</th>
+			<th>Địa chỉ</th>
+			<th>Trạng thái</th>
+		</tr>
+		<tr ng-repeat="item in pager.items | filter:name ">
+			<td>{{item.username}}</td>
+			<td>{{item.fullname}}</td>
+			<td>{{item.phone}}</td>
+			<td>{{item.email}}</td>
+			<td>{{item.address}}</td>
+			<td>{{item.activity?'Yes':'No'}}</td>
+			<td>
+				<button ng-click="edit(item)" class="btn btn-success"
+					style="width: 100px">Tùy chỉnh</button>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<div class="d-flex justify-content-center">
+		<button type="button" ng-click="pager.first()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button" ng-click="pager.prev()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button class="btn btn-primary">{{pager.page +1}} of
+			{{pager.count}}</button>
+		<button type="button" ng-click="pager.next()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button" ng-click="pager.last()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+
+
+<div class="card-footer">Danh sách khách hàng</div>

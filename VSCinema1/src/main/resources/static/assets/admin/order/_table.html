@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="form-group col-6">
+			<input class="form-control " type="date" ng-model="createdate"
+				ng-change="findByDate()" id="createdate">
+			<!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button> -->
+		</div>
+		<div class="form-group col-6">
+			<input class="form-control " type="search" ng-model="id"
+				placeholder="Tim kiếm hóa đơn" aria-label="Search">
+			<!-- <button   class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="submit()">Search</button> -->
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th rowspan="2">Mã đơn hàng</th>
+				<th rowspan="2">Mã khách hàng</th>
+				<th rowspan="2">Ngày tạo hóa đơn</th>
+				<th rowspan="2">Tổng tiền</th>
+				<th rowspan="2">Trạng thái</th>
+				<th rowspan="2">Chi tiết</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="or in pager.items| filter:{id:id}">
+				<td scope="row">{{or.id}}</td>
+				<td>{{or.user.username}}</td>
+				<td>{{or.createdate}}</td>
+				<td>{{or.totalmoney | currency:"":0}} VND</td>
+				<td>{{or.active?'Đã nhận':'Chưa nhận'}}</td>
+				<td><button ng-click="edit(or)" type="button"
+						class="btn btn-success font-weight-bold">Xem</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div class="d-flex justify-content-center">
+		<button type="button" ng-click="pager.first()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button" ng-click="pager.pre()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button" ng-click="pager.next()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button" ng-click="pager.last()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<div class="card-footer">Danh sách hóa đơn</div>

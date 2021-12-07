@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chi tiết phim</title>
+</head>
+
+<body>
+	<!-- SECTION -->
+	<div class="section details-film" th:object="${movies}">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- film thumb imgs -->
+				<div class="col-md-4  col-md-pull-5">
+					<div id="film-imgs">
+						<div class="film-preview">
+							<img th:src="@{|/assets/images/image/movies/posters/*{poster}}"
+								alt="">
+						</div>
+					</div>
+				</div>
+				<!-- /film thumb imgs -->
+				<div class="vl col-md-1"></div>
+				<!-- film details -->
+				<div class="col-md-7">
+					<div class="film-details">
+						<h1 class="film-name" style="color: #D10024;" th:text="*{name}"></h1>
+						<br>
+						<div>
+							<div class="film-rating">
+								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star-o"></i>
+							</div>
+							<span class="review-link info">10 Đánh giá | Thêm đánh giá
+								của bạn</span>
+						</div>
+						<ul class="film-links">
+							<li class="title">Đạo diễn:</li>
+							<li class="info" th:text="*{director}"></li>
+						</ul>
+
+						<ul class="film-links">
+							<li class="title">Thể loại:</li>
+							<li class="info" th:text="*{genre.name}"></li>
+						</ul>
+						<ul class="film-links">
+							<li class="title">Thời lượng:</li>
+							<li class="info" th:text="*{runningTime}"><span
+								style="color: #df0e62">phút</span></li>
+						</ul>
+						<ul class="film-links">
+							<li class="title">Ngày phát hành:</li>
+							<li class="info"
+								th:text="*{#dates.format(releaseDate, 'dd-MM-yyyy')}"></li>
+						</ul>
+						<ul class="film-links">
+							<li class="title">Nội dung phim:</li>
+							<p th:text="*{summary}"></p>
+						</ul>
+						<br>
+						<div class="book-ticket">
+							<button th:attr="ng-click=@{|saveID(*{id})|}"
+								class="book-ticket-btn">
+								<i class="fa fa-shopping-cart"></i> Đặt vé
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- /film details -->
+				<div class="trailer">
+					<h4>Trailers phim</h4>
+					<br>
+					<iframe width="1150" height="550"
+						th:src="@{|https://www.youtube.com/embed/*{trailer}|}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+</body>
+
+</html>

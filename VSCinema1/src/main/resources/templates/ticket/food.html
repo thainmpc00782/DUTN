@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đặt đồ ăn</title>
+<body>
+	<div class="form-checkout">
+		<section class="w3l-grids">
+			<br> <br> <br>
+			<div class="grids-main">
+				<div class="container col-sm-12"
+					style="background-color: black; height: 2rem; text-align: center;">
+					<div style="height: 4px;"></div>
+					<h4 style="color: white">
+						BẮP NƯỚC
+					</h4>
+				</div>
+			</div>
+			<div class="panel panel-default col-sm-10 offset-1">
+				<div class="panel-body">
+					<div class="row body">
+						<div class="col-sm-6" style="background-color: #fff;" ng-repeat="food in listFood">
+							<div class="col-sm-12 row">
+								<img class="col-sm-5" src="/assets/images/image/foods/{{food.food.image}}" alt="">
+								<div class="col sm-7" style="margin-top: 40px;">
+									<b>{{food.food.name}}</b><br>
+									<p>{{food.food.description}}</p>
+									<p style="color: red;" ng-if="food.sale.discount > 0">** Khuyến mãi: {{food.sale.discount}}% **</p>
+									<p ng-if="food.sale.discount > 0"> Giá: <del style="font-size: 11px;">{{food.food.price | number}} VND</del> <b style="color: red;">{{food.food.price - ((food.food.price*food.sale.discount)/100) | number}} VND</b> </p>
+									<p ng-if="food.sale.discount == 0"> Giá: <b>{{food.food.price - ((food.food.price*food.sale.discount)/100) | number}} VND</b> </p>
+									<div class="row">
+										<button class="btn btn-primary col-sm-2" style="font-size: 15px;" ng-click="cart.remove(food)">-</button>
+										<div class="col-sm-4 form-control" style="margin-left: 10px; margin-right: 10px; text-align: center;">{{food.quantity}}</div>
+										<button class="btn btn-primary col-sm-2" style="font-size: 15px;" ng-click="cart.add(food)">+</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="khung col-sm-12 bodyA" style="height: 20rem; background-color: #fff;">
+						<div class="wrapper">
+							<div class="movie_card">
+								<div class="left">
+									<div class="datails">
+										<br>
+										<h3>{{show.movie.name}}</h3>
+										<br>
+										<div class="head">
+											<p class="rated">{{show.room.name}}</p>
+											<p class="year">Ghế: <b ng-repeat="seat in seats2">{{seat.name}}</b></p>
+											<p class="genre">Suất chiếu: {{show.showDate|date:'dd-MM-yyyy'}} {{show.startTime}}</p>
+											<p class="time"></p>
+										</div>
+										<br>
+										<a style="color: black;">{{show.room.cinema.name}}</a>
+										<p class="description">{{show.room.cinema.address}}</p>
+										<div class="buttons">
+											<button class="button" ng-click="cart.previous()">
+												<i><<</i> 
+											</button>
+											<button class="buttonSF2" title="Download the trailer">
+												<i>Combo: {{cart.amount | number}}</i> VND
+											</button>
+											<button class="buttonSF2" title="Bookmark">
+												<i>Tổng tiền: {{cart.total | number}}</i>  VND
+											</button>
+											<button class="button" ng-click="cart.next()">
+												<i>>></i> 
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="c_right">
+									<img ng-src="/assets/images/image/movies/posters/{{show.movie.poster}}" alt="Movie IMG">
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title ">
+		<div class="row">
+			<label for="inputPassword2" class="sr-only">Mật khẩu</label> <input
+				ng-model="name" class="form-control mr-sm-4 " type="text"
+				placeholder="Tìm kiếm theo tên">
+		</div>
+	</div>
+</div>
+<br>
+<table class="table table-border">
+	<thead class="bg-success" style="font-variant: small-caps;">
+		<tr>
+			<th>Tài khoản</th>
+			<th>Họ tên</th>
+			<th ng-repeat="role in roles" class="text-center">{{role.name}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="acc in users | filter:name ">
+			<td>{{acc.username}}</td>
+			<td>{{acc.fullname}}</td>
+			<th ng-repeat="role in roles" class="text-center"><input
+				type="checkbox" ng-checked="authority_of(acc, role)"
+				ng-click="authority_changed(acc, role)"></th>
+		</tr>
+	</tbody>
+</table>

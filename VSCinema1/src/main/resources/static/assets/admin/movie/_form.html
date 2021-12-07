@@ -1,0 +1,124 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-3">
+			<label for="exampleInputEmail1">Poster phim</label>
+			<div class="border p-3">
+				<div class="container-fluid">
+					<br> <label for="poster"><img class="card-img-top"
+						alt="loading"
+						ng-src="{{'/assets/images/image/movies/posters/' + form.poster}}"
+						width="400px" height="150px"></label> <input type="file"
+						class="form-control" id="poster"
+						onchange="angular.element(this).scope().imageChangedPosters(this.files)">
+				</div>
+			</div>
+			<br> <label for="exampleInputEmail1">Banner phim</label>
+			<div class="border p-3">
+				<div class="container-fluid">
+					<br> <label for="banner"><img class="card-img-top"
+						alt="loading"
+						ng-src="{{'/assets/images/image/movies/banners/' + form.banner}}"
+						width="400px" height="150px"></label> <input type="file"
+						class="form-control" id="banner"
+						onchange="angular.element(this).scope().imageChangedBanners(this.files)">
+				</div>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Tên phim</label> <input type="text"
+					class="form-control" ng-model="form.name" id="name"
+					placeholder="Tên phim">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Phân loại phim</label> <select
+					ng-model="form.rated.id" class="form-control" id="rated">
+					<option value="">Chọn phân loại phim</option>
+					<option ng-repeat="ct in rated" ng-value="ct.id">{{ct.name}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Thể loại phim</label> <select
+					ng-model="form.genre.id" class="form-control" id="genre">
+					<option value="">Chọn thể loại phim</option>
+					<option ng-repeat="ct in genre" ng-value="ct.id">{{ct.name}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Đạo diễn</label> <input type="text"
+					class="form-control" ng-model="form.director" id="director"
+					placeholder="Đạo diễn">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Diễn viên</label> <input type="text"
+					class="form-control" ng-model="form.cast" id="cast"
+					placeholder="Diễn viên">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Ngôn ngữ</label> <input type="text"
+					class="form-control" ng-model="form.language" id="language"
+					placeholder="Ngôn ngữ">
+			</div>
+            <br>
+			<div class="row">
+				<div class="form-group">
+					<button type="button" style="width: 90px"
+						class="btn btn-success font-weight-bold" ng-click="create()"
+						ng-disabled="isEdit" title="thêm phim mới ?">Thêm</button>
+					<button type="button" style="width: 90px"
+						class="btn btn-info font-weight-bold" ng-click="update()"
+						ng-disabled="isLoad" title="Cập nhật thông in phim ?">Cập
+						nhật</button>
+					<button type="button" class="btn btn-warning font-weight-bold"
+						ng-click="reset()" title="Xóa trăng form nhập ?">Mới</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Ngày công chiếu</label> <input
+					ng-model="form.releaseDate" id="releaseDate" type="date"
+					class="form-control">
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Thời lượng</label> <input
+					id="runningTime" ng-model="form.runningTime" min="01:00"
+					max="12:00" type="time" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Trailer</label> <input type="text"
+					class="form-control" ng-model="form.trailer" id="trailer"
+					placeholder="Trailer phim">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Trạng thái</label>
+				<div class="form-control">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio"
+							name="inlineRadioOptions" id="activity" ng-value="true"
+							ng-model="form.activity"> <label class="form-check-label"
+							for="inlineRadio1">Đang chiếu</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio"
+							name="inlineRadioOptions" id="activity" ng-value="false"
+							ng-model="form.activity"> <label class="form-check-label"
+							for="inlineRadio2">Ngưng chiếu</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Tóm tắt phim</label>
+				<textarea class="form-control" rows="5"
+					placeholder="Giới thiệu tóm tắt phim" ng-model="form.summary"
+					id="summary"></textarea>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+<div class="card-footer">Vui lòng nhập thông tin của phim</div>

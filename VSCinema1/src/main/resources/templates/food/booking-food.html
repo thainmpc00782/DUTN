@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đặt đồ ăn</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row footer-links">
+			<div class="col-md-12 col-sm-6 sub-two-right mt-5">
+				<div class="col-sm-12" style="background-color: black; height: 3rem; text-align: center;">
+					<div style="height: 8px;"></div>
+					<h4 style="color: white">
+						BẮP NƯỚC
+					</h4>
+				</div>
+				<div class="row bodyS">
+					<div class="col-12 rowS4" style="border-top: 2px black solid;">
+						<label  class="form-check form-check-inline" ng-repeat="city in citiesFoods"> 
+							<input class="form-check-input" type="radio" name="options1" id="1">
+							<div class="icon-boxS4" ng-click="getCinemas(city)">
+								<span>{{city.name}}</span>
+							</div>
+						</label>
+					</div>
+					<div class="col-sm-12 rowS5">
+						<label class="form-check form-check-inline" ng-repeat="cinema in cinemasFoods"> 
+							<input class="form-check-input" type="radio" name="options2" id="1">
+							<div class="icon-boxS5" ng-click="getFoodsCinema(cinema)">
+								<span>{{cinema.name}}</span>
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class="row footer-about mb-3" style="">
+					<div class="col-sm-6" ng-repeat="food in listFoodsCinema">
+						<div class="col-sm-12 row">
+							<img class="col-sm-5" src="/assets/images/image/foods/{{food.food.image}}" alt=""
+								width="150" height="150">
+							<div class="col sm-7">
+								<b>{{food.food.name}}</b><br>
+								<p style="color: red;" ng-if="food.sale.discount > 0">** Khuyến mãi: {{food.sale.discount}}% **</p>
+								<p>{{food.food.description}}</p>
+								
+								<p ng-if="food.sale.discount > 0"> Giá: <del style="font-size: 11px;">{{food.food.price | number}} VND</del> <b style="color: red;">{{food.food.price - ((food.food.price*food.sale.discount)/100) | number}} VND</b> </p>
+								<p ng-if="food.sale.discount == 0"> Giá: <b>{{food.food.price - ((food.food.price*food.sale.discount)/100) | number}} VND</b> </p>
+								<div class="row">
+									<button class="btn btn-primary col-sm-2" style="font-size: 15px;" ng-click="cartFoods.remove(food)">-</button>
+									<div class="col-sm-4 form-control" style="margin-left: 10px; margin-right: 10px; text-align: center;">{{food.quantity}}</div>
+									<button class="btn btn-primary col-sm-2" style="font-size: 15px;" ng-click="cartFoods.add(food)">+</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+		<br> <br> <br>
+		<div class="container">
+			<div class="row footer-links">
+				<table class="table table-borderless">
+					<thead class="bg-dark text-light">
+						<tr>
+							<th scope="col">Tên</th>
+							<th scope="col"></th>
+							<th scope="col">Số Lượng</th>
+							<th scope="col"></th>
+							<th scope="col">Giá</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="or in listFoodsCinema" ng-if="or.quantity > 0">
+							<td>{{or.food.name}}</td>
+							<td style="float: right;"><button class="btn btn-primary" style="font-size: 15px;" ng-click="cartFoods.remove(or)">-</button></td>
+							<td><div class="form-control" style="text-align: center;">{{or.quantity}}</div></td>
+							<td style="float: left;"><button class="btn btn-primary" style="font-size: 15px;" ng-click="cartFoods.add(or)">+</button></td>
+							<td>{{(or.quantity*or.food.price) - ((or.quantity*or.food.price*or.sale.discount)/100) | number}} VND</td>
+							<td><button ng-click="cartFoods.clear(or)"> <ion-icon name="trash-outline"></ion-icon></button></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+				<div class="form-control mr-sm-2" style="text-align: center; width: 250px; font-weight: bold;;">Tổng: {{cartFoods.amount | number}} VND</div>
+				<button ng-click="cartFoods.clearAll()" class="btn btn-danger mr-sm-2" style="width: 100px;">Chọn Lại</button>
+				<button ng-click="cartFoods.next()" class="btn btn-danger" style="width: 100px;">Mua</button>
+			</div>
+		</div>
+		<div>
+			<br>
+		</div>
+	</div>
+</body>
+</html>

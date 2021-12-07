@@ -1,0 +1,72 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-4">
+			<div class="border p-3 ">
+				<img style="height: 400px;" class="card-img-top" alt="loading"
+					src='/assets/images/kiemduyet.png'>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Mã suất chiếu</label>
+				<div class="form-control">{{show.id}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Tên phim</label>
+				<div class="form-control">{{show.movie.name}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Rạp phim</label>
+				<div class="form-control">{{show.room.cinema.name}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Phòng chiếu</label>
+				<div class="form-control">{{show.room.name}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Giá bán</label>
+				<div class="form-control">{{show.priceShow.price}}</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Ngày chiếu</label>
+				<div class="form-control">{{show.showDate |
+					date:'dd-MM-yyyy'}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Giờ bắt đầu</label>
+				<div class="form-control">{{show.startTime}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Giờ kết thúc</label>
+				<div class="form-control">{{show.endTime}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Người tạo</label>
+				<div class="form-control">{{show.user.fullname}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Trạng thái</label>
+				<div ng-if="show.activity == 1" class="form-control">Tiếp nhận</div>
+				<div ng-if="show.activity == 2" class="form-control">Đã hủy</div>
+				<div ng-if="show.activity == 3" class="form-control">Đã duyệt</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-4"></div>
+	<div class="form-group col-8">
+		<button ng-show="buttonUpdate" ng-click="update()" type="button"
+			class="btn btn-success font-weight-bold">Duyệt</button>
+		<button ng-show="buttonDelete" ng-click="delete()" type="button"
+			class="btn btn-danger font-weight-bold">Hủy</button>
+		<button ng-click="reset()" type="button"
+			class="btn btn-info font-weight-bold">Mới</button>
+	</div>
+</div>
+
+
+

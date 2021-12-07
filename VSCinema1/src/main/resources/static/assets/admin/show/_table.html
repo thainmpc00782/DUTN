@@ -1,0 +1,154 @@
+<meta charset="utf-8">
+<style>
+#all {
+	cursor: pointer;
+}
+
+.excame {
+	background-color: white;
+	position: relative;
+}
+
+.autocome-box {
+	background-color: white;
+	width: 100%;
+	left: 0;
+	position: absolute;
+}
+
+#dates {
+	width: 100%;
+}
+
+ul>li {
+	list-style: none;
+}
+</style>
+<div class="card-header">
+	<div class="card-title  row">
+		<div class="col-1 form-group">
+			<button class="btn btn-info" id="all" ng-click="All()">
+				<i class="fab fa-rev"></i>
+			</button>
+		</div>
+		<div class="col-2 form-group">
+			<select class="form-control btn btn-light col-12" id="room"
+				ng-model="room" ng-change="fills()">
+				<option value="">Phòng</option>
+				<option ng-repeat="r in roomss" ng-value="r.name">{{r.name}}</option>
+			</select>
+		</div>
+		<div class="col-3 form-group">
+			<select ng-model="fillmovie" id="movie" ng-change="fills()"
+				class="form-control btn btn-light ">
+				<option value="">Phim</option>
+				<option ng-repeat="m in movies" ng-value="{{m.id}}">{{m.name}}
+			</select>
+		</div>
+		<div class="form-group col-3">
+			<select class="form-control btn btn-light col-12" id="showdate"
+				ng-model="showdate" ng-change="fills()"
+				ng-click="setinputformdate()">
+				<option value="">Tất cả ngày chiếu</option>
+				<option ng-repeat="srss in listshowdaterutgon" ng-value="srss">{{srss}}</option>
+			</select>
+		</div>
+		<div class="col-3 wrappers form-group">
+			<ul class="excame ">
+				<li class="col-12">
+					<div class="row">
+						<div class="col-8">
+							<input class="form-control " id="inputsearch" ng-keyup="Search()"
+								type="text">
+						</div>
+						<div class="col-4">
+							<button class="form-control " ng-click="fills()">Tìm</button>
+						</div>
+					</div>
+					<ul class="autocome-box">
+						<li ng-repeat="lsd in SeachList" ng-click="select(this)"><a
+							href="">{{lsd}}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<!-- <div class="col-6 wrappers">
+				<div class="row">
+					<ul  class="col-10 excames">
+						<li>
+							<input ng-keyup="Search()" class="col-10" id="inputsearchs"
+							type="text" placeholder="2021/11/01 hoặc 2021-11-01">
+							<ul class="autocom-boxs">	
+								<li ng-repeat="lsd in SeachList" ng-click="select(this)">{{lsd}}</li>
+								<li>8754859496</li>
+								<li>8754859496</li>
+								<li>8754859496</li>
+								<li>8754859496</li>
+								<li>8754859496</li>
+							</ul></li>
+						
+					</ul>
+					<div class="icons col-2" ng-click="fills()">
+						<i class="fas fa-search"></i>
+					</div>
+				</div>
+			</div> -->
+
+
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered">
+		<tr>
+			<th style="cursor: pointer;" ng-click="fillUpAndDown('id')">Id</th>
+			<th>Phim</th>
+			<th>Rạp phim</th>
+			<th>Phòng</th>
+			<th style="cursor: pointer;" ng-click="fillUpAndDown('showDate')">Ngày
+				chiếu</th>
+			<th>Giờ bắt đầu</th>
+			<th>Giờ kết thúc</th>
+			<th>Trạng thái</th>
+		</tr>
+
+		<tr ng-repeat="i in pager.items">
+			<td>{{i.id}}</td>
+			<td>{{i.movie.name}}</td>
+			<td>{{i.room.cinema.name}}</td>
+			<td>{{i.room.name}}</td>
+			<td>{{i.showDate | date: 'dd/MM/yyyy'}}</td>
+			<td>{{i.startTime}}</td>
+			<td>{{i.endTime}}</td>
+			<td ng-show="i.activity == 1">Tiếp nhận</td>
+			<td ng-show="i.activity == 2">Đã Hủy</td>
+			<td ng-show="i.activity == 3">Đã duyệt</td>
+			<td><button ng-click="edit(i)" style="width: 100px" href=""
+					class="btn btn-success font-weight-bold">Tùy chỉnh</button></td>
+		</tr>
+	</table>
+</div>
+<div class="card-footer clearfix">
+	<button type="button" ng-click="pager.first()"
+		ng-disabled="pager.page == 0"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-hand-point-left"></i>
+	</button>
+	<button type="button" ng-click="pager.prev()"
+		ng-disabled="pager.page == 0"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-arrow-circle-left"></i>
+	</button>
+	<button type="button" ng-disabled="pager.items.length < 10"
+		ng-click="pager.next()"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-arrow-circle-right"></i>
+	</button>
+	<button type="button" ng-click="pager.last()"
+		ng-disabled="pager.items.length < 10"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-hand-point-right"></i>
+	</button>
+</div>
+
+<div class="card-footer">Danh sách suất chiếu</div>

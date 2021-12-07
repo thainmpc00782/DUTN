@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<div class="card-body bodyA">
+	<div class="wrapper">
+		<div class="movie_card">
+			<div class="left col-sm-10">
+				<div class="datails">
+					<h2>{{form.show.movie.name}}</h2>
+					<br>
+					<div class="head row">
+					
+						<p class="rated col-2">{{form.seat.room.name}}
+							</p>
+						<p class="year">Ghế: {{form.seat.name}}</p>	
+						<p class="year">Giá vé: {{form.ticketprice}} VND</p>
+						
+						<p class="genre">Bắt đầu: {{form.show.showDate|
+							date:'dd/MM/yyyy'}} {{ form.show.startTime}}</p>
+						<p class="time">Kết thúc: {{form.show.showDate|
+							date:'dd/MM/yyyy'}} {{form.endtime| date:'HH:mm:ss'}}</p>
+					</div>
+					<br>
+					<h5 class="cinemaname">{{form.seat.room.cinema.name}}</h5>
+					<p class="description">Địa chỉ:
+						{{form.seat.room.cinema.address}}</p>
+					<div class="buttons">
+						<button class="button" title="Click to view trailer">
+							<i>MÃ VÉ: </i> {{form.id}}
+						</button>
+						<button class="button" title="Download the trailer">
+							<i>Khách Hàng: </i> {{form.order.user.fullname}}
+						</button>
+						<button class="button" title="Rating">
+							<i>Discount:</i> {{form.discount}}
+						</button>
+						<button class="button" title="Bookmark">
+							<i>Tổng tiền:</i> {{form.totalmoney}} VND
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="c_right col-sm-3">
+				<div class="img-fluid" >
+					<img class="img-fluid"
+						src="{{'/assets/images/image/movies/posters/' + form.show.movie.poster}}"
+						alt="Movie IMG">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<button type="button" ng-click="reset()" class="btn btn-info">
+	Reset</button>
+
+<div class="card-footer">Thông tin chi tiết vé xem phim.</div>

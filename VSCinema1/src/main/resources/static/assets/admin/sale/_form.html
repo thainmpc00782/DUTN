@@ -1,0 +1,67 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-4">
+			<div class="container-fluid">
+				<img class="card-img-top" alt="loading"
+					ng-src="{{'/assets/images/image/foods/' + form.food.image}}" />
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-group">
+				<div class="form-control">
+					<strong>Mã sản phẩm: {{form.food.id}} </strong>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-control">
+					<strong>Tên sản phẩm: {{form.food.name}} </strong>
+				</div>
+			</div>
+			<div class="input-group form-group">
+				<div class="form-control">
+					<strong>Giá bán: {{form.food.price}} </strong>
+				</div>
+				<div class="input-group-append">
+					<span class="input-group-text">VNĐ</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-control">
+					<strong>Ngày tạo: {{form.startDate|date: 'dd/MM/yyyy'}} </strong>
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">Ngày kết thúc</label> <input
+					type="date" class="form-control" placeholder="yyyy-MM-dd"
+					ng-model="form.endDate">
+			</div>
+			<br /> <label for="exampleInputEmail1">Khuyến mãi</label>
+			<div class="input-group form-group">
+				<input type="text" class="form-control" ng-model="form.discount">
+				<div class="input-group-append">
+					<span class="input-group-text">%</span>
+				</div>
+			</div>
+		</div>
+		<br> <br>
+
+	</div>
+</div>
+
+<div class="form-group ">
+	<button style="width: 90px" type="button" ng-click="create()"
+		class="btn btn-success font-weight-bold">Thêm</button>
+	<button style="width: 90px" type="button" ng-click="update()"
+		class="btn btn-info font-weight-bold">Cập nhật</button>
+	<button type="button" ng-click="delete(form)"
+		class="btn btn-danger font-weight-bold">Xóa</button>
+	<button type="button" ng-click="reset()"
+		class="btn btn-warning font-weight-bold">Mới</button>
+</div>
+
+<div class="card-footer">Vui lòng nhập thông tin chương trình
+	khuyên mãi</div>

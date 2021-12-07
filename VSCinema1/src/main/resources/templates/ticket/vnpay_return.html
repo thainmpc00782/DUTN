@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link href="/assets/css/jumbotron-narrow.css" rel="stylesheet">  
+</head>
+<body>
+	<div class="container">
+		<br> <br>
+		<div class="tab-content wow fadeIn"
+			style="visibility: visible; animation-name: fadeIn;">
+			<div role="tabpanel" class="tab-pane fade show active" id="yearly">
+				<div class="row justify-content-center">
+					
+					<div class="col-md-6 col-lg-5 mb-30" th:object="${payment}">
+						<div class="price-item text-center popular">
+							<div class="price-top">
+								<h4>THÔNG TIN HÓA ĐƠN</h4>
+								<h2 class="mb-0">
+									[[*{#numbers.formatDecimal(vnp_Amount/100, 0, 'COMMA', 0, 'POINT')}]] <sup>VND</sup>
+								</h2>
+								<span class="text-capitalize">VNPAY | [[*{vnp_Bankcode}]]</span>
+							</div>
+							<div class="price-content">
+								<ul class="border-bottom mb-30 mt-md-4 pb-3 text-left">
+									<li><i class="zmdi zmdi-check mr-2"></i> <span
+										class="c-black">MÃ HÓA ĐƠN: [[*{vnp_TxnRef.id}]]</span></li>
+									<li><i class="zmdi zmdi-check mr-2"></i> <span
+										class="c-black">MÃ GIAO DỊCH VNPAY: [[*{vnp_Transactionno}]]</span></li>
+									<li><i class="zmdi zmdi-check mr-2"></i> <span
+										class="c-black">NỘI DUNG: [[*{vnp_Orderinfo}]]</span></li>
+									<li><i class="zmdi zmdi-close mr-2"></i> <span>THỜI GIAN: [[${time}]]</span></li>
+									<li th:if="*{vnp_Transactionstatus == '00'}"><i class="zmdi zmdi-close mr-2"></i> <span>TRẠNG THÁI: Thành Công</span></li>
+									<li th:unless="*{vnp_Transactionstatus == '00'}"><i class="zmdi zmdi-close mr-2"></i> <span>TRẠNG THÁI: Thất Bại</span></li>
+								</ul>
+								<a href="/home" class="btn btn-custom btn-light">Về trang chủ</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

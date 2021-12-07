@@ -1,0 +1,95 @@
+<style type="text/css">
+label, a, h3, button {
+	font-family: 'Open Sans', cursive;
+}
+</style>
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="col-5">
+			<h5>Thống kê người dùng</h5>
+		</div>
+		<div class="col-4 form-group">
+			<input class="form-control" ng-model="search"
+				placeholder="Nhập ký tự tìm kiếm" id="fullnamesearch" type="text">
+		</div>
+		<div class="col-3 form-group">
+			<select class="form-control" ng-change="changestatusaccount()"
+				id="statusaccount" ng-model="status">
+				<option value="" selected>Trạng thái</option>
+				<option value="1">Không hoạt động</option>
+				<option value="2">Đang hoạt động</option>
+			</select>
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="col-12">
+		<tr class="col-8 offset-2">
+			<td class="col-6"><div id="piechart_div"
+					style="border: 1px solid #ccc"></div></td>
+			<td class="col-6"><div id="columnchart_div"
+					style="border: 1px solid #ccc"></div></td>
+		</tr>
+	</table>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th rowspan="2">Tài khoản</th>
+				<th rowspan="2">Họ tên</th>
+				<th rowspan="2">Giới tính</th>
+				<th rowspan="2">Email</th>
+				<th rowspan="2">Số điện thoại</th>
+				<th rowspan="2">Số CMND</th>
+				<th rowspan="2">Địa chỉ</th>
+				<th rowspan="2">Trạng thái</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="au in auths | filter:search">
+				<th scope="row">{{au.user.username}}</th>
+				<td>{{au.user.fullname}}</td>
+				<td>{{au.user.gender?'Nữ¯':'Nam'}}</td>
+				<td>{{au.user.email}}</td>
+				<td>{{au.user.phone}}</td>
+				<td>{{au.user.cmnd}}</td>
+				<td>{{au.user.address}}</td>
+				<td>{{au.user.activity ? 'Đang hoạt động':'Không hoạt động'}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.first()" title="Trở về trang đầu ?">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.prev()" title="Lùi về trang trước đó ?">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.next()" title="Tiến lên trang trước đó ?">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.last()" title="Tiến đến trang cuối ?">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+	<br />
+	<div class=" row">
+		<div class="col-2 ">Tổng tài khoản: {{sumaccount}}</div>
+		<div class="col-2">Tài khoản nhân viên: {{staf.length}}</div>
+		<div class="col-2">Tài khoản khách hàng: {{user.length}}</div>
+		<div class="col-2">Tài khoản hoạt động: {{accountActive.length}}</div>
+		<div class="col-2">Tài khoản không hoạt động:
+			{{accountNotActive.length}}</div>
+	</div>
+</div>
+<br />
+<div class="card-footer  row">Vina Star Cinema</div>

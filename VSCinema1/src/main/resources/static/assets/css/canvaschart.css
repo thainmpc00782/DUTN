@@ -1,0 +1,16 @@
+#myChart,#chartContainer{
+	width:100%;
+	max-width:600px;
+	height: 329px;
+}
+#reportticketandfood{
+	width:100%;
+	max-width:600px;
+	height: 300px;
+}
+.chart-left-div{
+	margin-top: 5rem;
+}
+.chart-right-div{
+	margin-top: 5rem;
+}

@@ -1,0 +1,105 @@
+
+<meta charset="utf-8">
+<div class="col-12 chart-height">
+	<div id="reportticket" ng-init="reportTicket()"></div>
+</div>
+
+<div class="panel-header">
+	<div class="row" style="height: 30rem"></div>
+	<div class="panel-title row">
+		<div class="col-3 my-2 my-lg-0">
+			<strong>THỐNG KÊ VÉ XEM PHIM</strong>
+		</div>
+
+		<div class="form-inline my-2 my-lg-0 col-7">
+			<input id="startdate" class="form-control mr-sm-2" type="date">
+			<input id="enddate" class="form-control mr-sm-2" type="date">
+			<select id="moviere" ng-change="fillss()" ng-model="moviest"
+				class="form-control ">
+				<option value="">Chọn tên phim</option>
+				<option ng-repeat="m in movie" ng-value="m.id">{{m.name}}</option>
+			</select>
+		</div>
+		<div class="form-inline my-2 my-lg-0 col-2">
+			<button class="btn btn-success my-2 my-sm-0" type="submit"
+				ng-click="fillss()" style="width: 90px">Submit</button>
+		</div>
+
+	</div>
+</div>
+<section class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<div id="bar-chart"></div>
+		</div>
+
+		<div class="col-md-8">
+			<div id="line-chart"></div>
+		</div>
+
+		<div class="col-md-8">
+			<div id="area-chart"></div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="donut-chart"></div>
+		</div>
+
+		<div class="col-md-8">
+			<div id="pie-chart"></div>
+		</div>
+	</div>
+</section>
+<br />
+<div class="panel-body">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th rowspan="2">Mã đơn hàng 1</th>
+				<th rowspan="2">Mã khách hàng</th>
+				<th rowspan="2">Ngày đặt hàng</th>
+				<th rowspan="2">Tên phim</th>
+				<th rowspan="2">Tổng tiền</th>
+				<th rowspan="2">Trạng thái</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="tk in tickets">
+				<th scope="row">{{tk.id}}</th>
+				<td>{{tk.order.user.username}}</td>
+				<td>{{tk.createDate}}</td>
+				<td>{{tk.show.movie.name}}</td>
+				<td>{{tk.totalmoney}}</td>
+				<td ng-if="tk.activity == 1">Tiếp nhận</td>
+				<td ng-if="tk.activity == 2">Đã hủy</td>
+				<td ng-if="tk.activity == 3">Đã xác nhận</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.first()" title="Trở về trang đầu ?">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.prev()" title="Lùi về trang trước đó ?">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.next()" title="Tiến lên trang trước đó ?">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold"
+			ng-click="pager.last()" title="Tiến đến trang cuối ?">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<br />
+<div class="card-footer">Vina Star Cinema</div>

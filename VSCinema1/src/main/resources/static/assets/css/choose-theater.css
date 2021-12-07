@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Tạo hai cột bằng nhau nổi bên cạnh nhau */
+.column {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+.column-film {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+
+li {
+  list-style: none;
+  color: white;
+  font-weight: bold;
+}
+
+li:hover {
+  text-decoration: underline;
+  color: red;
+  cursor: pointer;
+}
+
+/* Tạo background-image */
+.background {
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/970/304/883/texture-wood-dark-wallpaper-preview.jpg");
+
+}
+
+.row {
+    margin-top: 50px;
+}
+
+/* Xóa số nổi sau các cột */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Tạo border-image */
+#borderimg {
+  border: 13px solid transparent;
+  padding: 15px;
+  border-image: url("https://www.publicdomainpictures.net/pictures/230000/velka/white-frame-7.jpg")
+    70 round;
+}

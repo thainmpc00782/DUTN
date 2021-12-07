@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.bodySEAT {
+  background-color: #fff;
+  display: flex;
+}
+
+.rowA {
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.rowA label {
+  padding: 5px;
+  margin: 7px;
+  display: flex;
+}
+
+.rowA label input[type="checkbox"] {
+  display: none;
+}
+
+.rowA label .icon-box {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #353746;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowA label .icon-boxB1 {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0cc652;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowA label .icon-boxB2 {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f15f7ac4;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowA label .icon-boxB3 {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowA label .icon-boxB4 {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex-direction: column;
+  align-items: center;
+  background: gray;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+}
+
+.rowA label input[type="checkbox"]:checked ~ .icon-box {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowA label .icon-box span {
+  font-size: 10px;
+}
+
+.rowA label .icon-boxB1 span {
+  font-size: 10px;
+}
+
+.rowA label .icon-boxB2 span {
+  font-size: 10px;
+}
+
+.rowA label .icon-boxB3 span {
+  font-size: 10px;
+}
+
+.rowA label .icon-boxB4 span {
+  font-size: 10px;
+}

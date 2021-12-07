@@ -1,0 +1,98 @@
+<meta charset="utf-8">
+<div class="card">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-4 form-group">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Tên phòng"
+						ng-model="room.name">
+				</div>
+			</div>
+			<div class="col-4 form-group">
+				<div class="input-group">
+					<select ng-change="findRapFromCity()"
+						ng-model="room.cinema.city.id" class="custom-select">
+						<option value="">Tỉnh / Thành phố</option>
+						<option ng-repeat="c in cities" ng-value="c.id">{{c.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-4 form-group">
+				<div class="input-group">
+					<select class="custom-select" ng-model="room.cinema.id">
+						<option value="">Rạp chiếu</option>
+						<option ng-repeat="c in cinemas" ng-value="c.id">{{c.name}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-9"></div>
+			<div class="form-group col-3">
+				<button ng-if="index == 0" ng-click="create()"
+					class="btn btn-success font-weight-bold ">Thêm</button>
+				<button ng-if="index == 1" ng-click="update()" style="width: 90px"
+					class="btn btn-info font-weight-bold">Cập nhật</button>
+				<button ng-if="updateRoom.activity==true" type="button"
+					ng-click="delete()" class="btn btn-danger font-weight-bold">
+					Bảo trì</button>
+				<button ng-if="updateRoom.activity==false" type="button"
+					ng-click="delete()" style="width: 100px"
+					class="btn btn-success font-weight-bold">Hoạt động</button>
+				<button type="button" ng-click="reset()"
+					class="btn btn-warning font-weight-bold">Mới</button>
+			</div>
+		</div>
+	</div>
+	<hr style="background-color: yellow;">
+	<br>
+	<div ng-show="show">
+		<nav class="navbar navbar-light row"
+			style="background-color: #e3f2fd; width: 95%; margin-left: 30px;">
+			<div class="col-3">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Số ghế</label> <input type="text"
+						class="form-control" ng-model="seat.name">
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Loại ghế</label> <select
+						ng-model="seat.type.id" class="form-control">
+						<option value="">Chọn loại ghế</option>
+						<option ng-repeat="ty in types" ng-value="ty.id">{{ty.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Vị trí ghế</label>
+					<div class="form-control">{{position}}</div>
+				</div>
+			</div>
+			<button ng-click="add()" ng-if="indexButton == 0"
+				class="btn btn-info btn-lg btn3d">Thêm</button>
+			<button ng-click="updateSeats()" ng-if="indexButton == 1"
+				class="btn btn-warning btn-lg btn3d">Sửa</button>
+			<button ng-click="deleteSeat()" ng-if="indexButton == 1"
+				class="btn btn-danger btn-lg btn3d">Xóa</button>
+			<button ng-click="resetSeat()" class="btn btn-success btn-lg btn3d">Mới</button>
+		</nav>
+	</div>
+	<br>
+	<div class="row body" ng-show="show">
+		<div class="col-12">
+			<div class="rowA btn-group btn-group-toggle">
+				<label ng-repeat="p in positions"
+					class="form-check form-check-inline"> <input
+					class="form-check-input" type="radio" name="options" id="{{p.id}}">
+					<div class="icon-box" ng-click="editSeat(p)">
+						<span>{{p.seat.name}}</span>
+					</div>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card-footer">Thông tin chi tiết phòng chiếu</div>
+</div>

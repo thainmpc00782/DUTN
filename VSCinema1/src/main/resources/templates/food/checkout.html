@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanh toán</title>
+</head>
+<body onload="start()" style="font-size: 14px;">
+	<div class="form-checkout">
+		<section class="w3l-grids">
+			<br>
+			<div class="grids-main">
+				<div class="container col-sm-12"
+					style="background-color: black; height: 2rem; text-align: center;">
+					<div style="height: 3px;"></div>
+					<h4 style="color: white">
+						THANH TOÁN
+					</h4>
+				</div>
+			</div>
+			<div class="panel panel-default  col-sm-10 offset-1">
+				<div class="panel-body">
+					<div class="row body"> 
+						<div class="col-8">
+							<p style="width: 95%;text-align: center; align-items: center; background-color: #b24591c9; color: #fff;">HÌNH THỨC THANH TOÁN</p>
+							<div class="containerC1">
+								<label class="form-check form-check-inline col-sm2"> 
+									<input class="form-check-input" type="checkbox">
+									<div class="icon-boxC1" ng-click="choosePay(vnpay)">
+										<img alt="" src="/assets/images/vnpay_logo.png" height="100px" width="100px">
+									</div>
+								</label>
+								<div class="col-sm-6">
+									<div class="card card-default" style="height: 100px; margin-top: 20px; left: 100px;">
+										<div class="card-body" style="text-align: center; color: #353746;">
+											<h5> Thời gian đếm ngược </h5>
+										</div>
+										<div class="card-footer" style="background-color: none">
+											<input type="text" class="col-sm-5 offset-1 icon-boxC2" id="phut" style="background-color: none; font-size: 16px;">
+											<input type="text" class="col-sm-5 icon-boxC2" id="s" style="font-size: 16px;">
+										</div>
+									</div>	
+								</div>
+							</div>
+							<hr style="border: 1px solid; width: 95%;">
+							<div class="containerC2" ng-if="payment != null">
+								<label class="form-check form-check-inline"> 
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<div class="icon-boxBank2" style="width: 200px; height: 42px" ng-click="chooseBank(bankNCB)">
+										<img alt="" src="/assets/images/ncb_logo.png">
+									</div>
+								</label>
+								
+								<label class="form-check form-check-inline"> 
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<div class="icon-boxBank2" style="width: 200px; height: 42px" ng-click="chooseBank(bankSACOMBANK)">
+										<img alt="" src="/assets/images/sacombank_logo.png">
+									</div>
+								</label>
+								
+								<label class="form-check form-check-inline"> 
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<div class="icon-boxBank2" style="width: 200px; height: 42px" ng-click="chooseBank(bankTPBANK)">
+										<img alt="" src="/assets/images/tpbank_logo.png">
+									</div>
+								</label>
+								
+								<label class="form-check form-check-inline"> 
+									<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<div class="icon-boxBank2" style="width: 200px; height: 42px" ng-click="chooseBank(bankBIDV)">
+										<img alt="" src="/assets/images/bidv_logo.png">
+									</div>
+								</label>
+							</div>
+						</div>
+						
+						<div class="col-4">
+							<div class="price-item text-center popular" style="height: 460px;">
+                                <div class="price-top">
+                                    <h4>Tổng số tiền thanh toán</h4>
+                                    <h2 class="mb-0">{{amountFoods|number}} <sup>VND</sup></h2>
+                                    <span class="text-capitalize">{{payment}} : {{bankCode}}</span>
+                                </div>
+                                <div class="price-content">
+                                    <ul class="border-bottom mb-30 mt-md-4 pb-3 text-left">
+                                        
+                                    </ul>
+                                    <br> <br> <br>
+                                    <a class="btn btn-custom btn-light" ng-click="createOrderFood()">Thanh Toán</a>
+                                </div>
+                            </div>
+						</div>
+					</div> 
+				</div> 
+			</div>
+			<br> <br>
+		</section>
+	</div>
+</body>
+
+</html>
+<!-- responsive tabs -->

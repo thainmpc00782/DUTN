@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chọn rạp phim</title>
+</head>
+
+<body>
+	<div class="cinema-list container">
+		<br> <br>
+		<div class="bodyO">
+			<br> <br>
+			<h1 class="h1O">HÓA ĐƠN</h1>
+			<div class="khung col-sm-12 bodyA" ng-repeat="or in pager.items" style="height: 27rem; background-color: #fff; margin-left: 90px; width: 90%;">
+				<div class="wrapper" ng-if="or.show.id != null">
+					<div class="movie_card" style="height: 27rem;">
+						<div class="left">
+							<div class="datails">
+								<br>
+								<h3>{{or.show.movie.name}}</h3>
+								<p class="time" ng-if="or.order.active == 0">ĐANG THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+								<p class="time" ng-if="or.order.active == 1">ĐÃ THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+								<p class="time" ng-if="or.order.active == 2">GIAO DỊCH CHƯA HOÀN TẤT | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+								<p class="time" ng-if="or.order.active == 3">ĐÃ THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+								<br>
+								<div class="head">
+									<p class="rated">{{or.show.room.name}}</p>
+									<p class="year">Ghế: {{or.seat}}</p>
+									<p class="genre">{{or.show.showDate | date :'dd-MM-yyyy'}} | {{or.show.startTime}}</p>
+									<p class="time">{{or.show.showDate | date :'dd-MM-yyyy'}} | {{or.show.endTime}}</p>
+								</div>
+								<br> <a style="color: black;">{{or.show.room.cinema.name}}</a>
+								<p class="description">{{or.show.room.cinema.address}}</p>
+								<hr>
+								<p class="description">{{or.food}}</p>
+								<div class="buttons">
+									<button class="buttonMoney">
+										<i>MÃ: {{or.order.id}}</i>
+									</button>
+									<button class="buttonMoney">
+										<i>TỔNG TIỀN: {{or.order.totalmoney | number}} VND</i>
+									</button>
+									<button class="buttonMoney" ng-click="checkOrder(or.order.id)">
+										<i>KIỂM TRA ĐƠN HÀNG</i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper" ng-if="or.show.id == null">
+					<div class="movie_card" style="height: 27rem;">
+						<div class="left">
+							<div class="datails">
+								<br>
+								<h3>HÓA ĐƠN BẮP NƯỚC</h3>
+								<br>
+								<div class="head">
+									<p class="rated" ng-if="or.order.active == 0">ĐANG THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+									<p class="rated" ng-if="or.order.active == 1">ĐÃ THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+									<p class="rated" ng-if="or.order.active == 2">GIAO DỊCH CHƯA HOÀN TẤT | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+									<p class="rated" ng-if="or.order.active == 3">ĐÃ THANH TOÁN | {{or.order.createdate | date:'dd/MM/yyyy'}} {{or.order.time}}</p>
+								</div>
+								<br> <a style="color: black;">{{or.cinema.name}}</a>
+								<p class="description">{{or.cinema.address}}</p>
+								<hr>
+								<p class="description">{{or.food}}</p>
+								<div class="buttons">
+									<button class="buttonMoney">
+										<i>MÃ: {{or.order.id}}</i>
+									</button>
+									<button class="buttonMoney">
+										<i>TỔNG TIỀN: {{or.order.totalmoney | number}} VND</i>
+									</button>
+									<button class="buttonMoney" ng-click="checkOrder(or.order.id)">
+										<i>KIỂM TRA ĐƠN HÀNG</i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin-left: 400px;">
+				<button class="button" ng-click="pager.first()"> << </button>
+				<button class="button" ng-click="pager.prev()"> < </button>
+				<button class="button" ng-click="pager.next()"> > </button>
+				<button class="button" ng-click="pager.last()"> >> </button>
+			</div>
+		</div>
+		<!--grids-sec2-->
+		<section class="w3l-grids">
+			<div class="grids-main py-5">
+				<div class="container py-lg-3">
+					<div class="headerhny-title">
+						<div class="w3l-title-grids">
+							<div class="headerhny-left">
+								<h3 class="hny-title">Danh sách phim của rạp</h3>
+							</div>
+						</div>
+					</div>
+					<div class="owl-three owl-carousel owl-theme">
+						<div class="item vhny-grid" th:each="s: ${movies}">
+							<div class="box16 mb-0">
+								<a href="genre.html">
+									<figure>
+										<img class="img-fluid" th:src="@{|/assets/images/image/movies/posters/${s.poster}|}" alt="">
+									</figure>
+									<div class="box-content">
+
+										<h4>
+											<span class="post"><span class="fa fa-clock-o">
+											</span> [[${#dates.hour(s.runningTime)}]] giờ
+											[[${#dates.minute(s.runningTime)}]] phút</span> <span class="post fa fa-heart text-right"></span>
+										</h4>
+									</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
+								</a>
+							</div>
+							<h3 style="height: 100px;">
+								<a th:href="@{|/movie/film-detail/${s.id}|}" class="title-gd">[[*{s.name}]]</a>
+							</h3>
+							<p></p>
+							<div class="button-center text-center mt-4">
+								<a th:attr="ng-click=@{|saveID(*{s.id})|}" class="btn watch-button"><i class="fa fa-ticket"
+									aria-hidden="true"></i>Mua vé</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<style type="text/css">
+label, a, h3, button {
+	font-family: 'arial', cursive;
+}
+</style>
+<meta charset="utf-8">
+<div class="col-12 card">
+	<div class="card-title">Tổng doanh thu</div>
+	<div id="chartSumTicketMovie" ng-init="SumTicketMovie()"
+		style="height: 25em"></div>
+	<div class="card-body">
+
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th colspan="2">Doanh thu hôm nay</th>
+				<th colspan="2">Doanh thu tháng này</th>
+				<th colspan="2">Doanh thu năm nay</th>
+			</tr>
+			<tr>
+				<td colspan="2">{{Synthetic[0] | currency: "đ"}}</td>
+				<td colspan="2">{{Synthetic[1] | currency: "đ"}}</td>
+				<td colspan="2">{{Synthetic[2] | currency: "đ"}}</td>
+			</tr>
+		</table>
+		<!-- <table class="table table-bordered table-hover">
+			<tr><th colspan="2">Số lượng hóa đơn</th>
+				<th colspan="2">Số vé xem phim</th>
+				<th colspan="2">Số lượng đồ ăn</th></tr>
+			<tr>
+			<td colspan="2">758450470674</td>
+			<td colspan="2">758450470674</td>
+			<td colspan="2">758450470674</td></tr>
+		</table> -->
+	</div>
+
+</div>

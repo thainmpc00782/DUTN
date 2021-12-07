@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.bodyS {
+  background-color: #fff;;
+  display: flex;
+}
+
+.rowS {
+  border-top: 2px solid #2b2b2b;
+  border-bottom: 2px solid #2b2b2b;
+  width: 100%;
+}
+.rowS label {
+  display: flex;
+  float: left;
+  width: 13%;
+  padding: 20px;
+  margin-left: 2px;
+}
+
+.rowS label input[type="radio"] {
+  display: none;
+}
+
+.rowS label .icon-boxS {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 48px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #636363;
+  border-radius: 3px;
+  border: 2px solid;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowS label input[type="radio"]:checked ~ .icon-boxS {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowS label .icon-boxS span {
+  font-size: 14px;
+}
+
+.rowS1 {
+  border-bottom: 2px solid #2b2b2b;
+  width: 100%;
+}
+.rowS1 label {
+  display: flex;
+  float: left;
+  width: 11%;
+  padding: 20px;
+  margin-left: 5px;
+}
+
+.rowS1 label input[type="radio"] {
+  display: none;
+}
+
+.rowS1 label .icon-boxS1 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  padding: 9px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #353746;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowS1 label input[type="radio"]:checked ~ .icon-boxS1 {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowS1 label .icon-boxS1 span {
+  font-size: 10px;
+}
+
+.rowS2 {
+  border-bottom: 1px solid #2b2b2b;
+  width: 100%;
+}
+.rowS2 label {
+  display: flex;
+  float: left;
+  width: 11%;
+  padding: 20px;
+  margin-left: 2px;
+}
+
+.rowS2 label input[type="radio"] {
+  display: none;
+}
+
+.rowS2 label .icon-boxS2 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  padding: 9px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #353746;
+  border: solid 1px;
+  border-radius: 0px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowS2 label input[type="radio"]:checked ~ .icon-boxS2 {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowS2 label .icon-boxS2 span {
+  font-size: 10px;
+}
+
+.rowS4 {
+  border-bottom: 2px solid #2b2b2b;
+  width: 100%;
+}
+.rowS4 label {
+  display: flex;
+  float: left;
+  width: 11%;
+  padding: 7px;
+  margin-left: 5px;
+}
+
+.rowS4 label input[type="radio"] {
+  display: none;
+}
+
+.rowS4 label .icon-boxS4 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  padding: 9px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #353746;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowS4 label input[type="radio"]:checked ~ .icon-boxS4 {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowS4 label .icon-boxS4 span {
+  font-size: 10px;
+}
+
+.rowS5 {
+  border-bottom: 2px solid #2b2b2b;
+  width: 100%;
+}
+.rowS5 label {
+  display: flex;
+  float: left;
+  width: 20%;
+  padding: 20px;
+  margin-left: 35px;
+}
+
+.rowS5 label input[type="radio"] {
+  display: none;
+}
+
+.rowS5 label .icon-boxS5 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  border: 1px black solid;
+  padding: 9px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #353746;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowS5 label input[type="radio"]:checked ~ .icon-boxS5 {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowS5 label .icon-boxS5 span {
+  font-size: 10px;
+}
+

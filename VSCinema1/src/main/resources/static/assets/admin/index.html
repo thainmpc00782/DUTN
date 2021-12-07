@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trang quản trị</title>
+<!-- Latest compiled and minified CSS -->
+<script src="https://kit.fontawesome.com/a076d05399.js"
+	crossorigin="anonymous"></script>
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<!--  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<!-- Theme style -->
+<link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+<!-- jQuery library -->
+<script
+	src="/assets/js/jquery-1.9.1.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<link rel="icon" href="/assets/dist/img/logo1.png">
+<link rel="stylesheet" type="text/css" href="/assets/css/seat.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/ticket.css">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="/assets/css/ticket.css">
+
+<!-- Canvas -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<link rel="stylesheet" href="/assets/css/canvaschart.css">
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed"
+	ng-app="admin-app" ng-controller="admin-ctrl">
+	<div class="wrapper">
+		<!-- Preloader -->
+		<div
+			class="preloader flex-column justify-content-center align-items-center">
+			<img class="animation__shake" src="/assets/dist/img/LOGO.png"
+				alt="AdminLTELogo" height="300" width="300">
+		</div>
+		<!-- Navbar -->
+		<nav
+			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#" role="button"><i class="fas fa-bars"></i></a></li>
+			</ul>
+			<!-- Right navbar links -->
+			<ul class="navbar-nav ml-auto">
+				<!-- Navbar Search -->
+				<!-- Messages Dropdown Menu -->
+				<!-- full screen -->
+				<li class="nav-item"><a class="nav-link"
+					data-widget="fullscreen" href="#" role="button"> <i
+						class="fas fa-expand-arrows-alt"></i>
+				</a></li>
+			</ul>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="index.html" class="brand-link"> <img
+				src="/assets/dist/img/logo1.png"
+				class="brand-image img-circle elevation-3" style="opacity: .8">
+				<span class="brand-text font-weight-light" style="color: #df0e62">Trang
+					Quản Trị</span>
+			</a>
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<div 
+					class="user-panel mt-3 pb-3 mb-3 d-flex">
+					<div class="image">
+						<img src="/assets/dist/img/{{user.image}}"
+							class="img-circle elevation-2" alt="User Image">
+					</div>
+					<div class="info">
+						<a href="" class="d-block">{{user.fullname}}</a>
+					</div>
+				</div>
+
+
+				<!-- Sidebar Menu -->
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
+						<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+						<li class="nav-item "><a href="./index.html"
+							class="nav-link active"> <i class="fas fa-home"></i>
+								<p>Trang Chủ</p>
+						</a></li>
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class=" fas fa-film"></i>
+								<p>
+									Quản trị rạp phim <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#!cinema" class="nav-link">
+										<i class="fas fa-hotel nav-icon"></i>
+										<p>Rạp</p>
+								</a></li>
+								<li class="nav-item"><a href="#!room" class="nav-link">
+										<i class="fas fa-gopuram nav-icon"></i>
+										<p>Phòng</p>
+								</a></li>
+								<li class="nav-item"><a href="#!show" class="nav-link">
+										<i class="fas fa-calendar-week nav-icon"></i>
+										<p>Suất chiếu</p>
+								</a></li>
+								<li class="nav-item"><a href="#!censors" class="nav-link">
+										<i class="fas fa-key nav-icon"></i>
+										<p>Kiểm duyệt</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="fab fa-servicestack"></i>
+								<p>
+									Phim & Đồ ăn <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#!movie" class="nav-link">
+										<i class="far fa-file-video nav-icon"></i>
+										<p>Phim</p>
+								</a></li>
+								<li class="nav-item"><a href="#!foods" class="nav-link">
+										<i class="fas fa-pizza-slice nav-icon"></i>
+										<p>Đồ ăn</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="fas fa-users"></i>
+								<p>
+									Quản trị người dùng <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#!account" class="nav-link">
+										<i class="far fa-user nav-icon"></i>
+										<p>Người dùng</p>
+								</a></li>
+								<li class="nav-item"><a href="#!authorize" class="nav-link">
+										<i class="fas fa-code-branch nav-icon"></i>
+										<p>Phân quyền</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="fas fa-clipboard-list"></i>
+								<p>
+									Vé & Mã giảm giá <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#!tickets" class="nav-link">
+										<i class="fas fa-ticket-alt nav-icon"></i>
+										<p>Vé</p>
+								</a></li>
+								<li class="nav-item"><a href="#!sales" class="nav-link">
+										<i class="fas fa-tags"></i>
+										<p>Bán hàng</p>
+								</a></li>
+								<li class="nav-item"><a href="#!coupons" class="nav-link">
+										<i class="far fa-bookmark nav-icon"></i>
+										<p>Mã giảm giá</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="fas fa-envelope-open-text"></i>
+								<p>
+									Báo cáo <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#!statistics"
+									class="nav-link"> <i class="fas fa-poll nav-icon"></i>
+										<p>Thống kê</p>
+								</a></li>
+								<li class="nav-item"><a href="#!orders" class="nav-link">
+										<i class="fas fa-receipt nav-icon"></i>
+										<p>Hóa đơn</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item"><a href="/security/logoff"
+							class="nav-link"> <i class="fas fa-envelope-open-text"></i>
+								<p>Đăng xuất</p>
+						</a></li>
+
+					</ul>
+				</nav>
+				<!-- /.sidebar-menu -->
+			</div>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-1">
+						<div class="col-sm-6"></div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-info">
+								<div class="inner">
+									<h3>{{movies.length}}</h3>
+
+									<p>Phim</p>
+								</div>
+								<div class="icon">
+									<i class="ion ion-film-marker"></i>
+								</div>
+								<a href="" class="small-box-footer">Tổng số phim</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-success">
+								<div class="inner">
+									<h3>{{cinemas.length}}</h3>
+
+									<p>Rạp</p>
+								</div>
+								<div class="icon">
+									<i class="ion ion-stats-bars"></i>
+								</div>
+								<a href="#" class="small-box-footer">Toàn quốc</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-warning">
+								<div class="inner">
+									<h3>{{auths.length}}</h3>
+									
+									<p>Người dùng</p>
+								</div>
+								<div class="icon">
+									<i class="ion ion-person-add"></i>
+								</div>
+								<a href="#" class="small-box-footer">Hiện tại</a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-3 col-6">
+							<!-- small box -->
+							<div class="small-box bg-danger">
+								<div class="inner">
+									<h3>{{Synthetic[0] | currency: "đ"}}</h3>
+
+									<p>Doanh thu</p>
+								</div>
+								<div class="icon">
+									<i class="ion ion-pie-graph"></i>
+								</div>
+								<a href="#" class="small-box-footer">Trong ngày</a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+					<!-- Main row -->
+					<div class="row">
+						<!-- Left col -->
+						<section class="col-lg-12 connectedSortable">
+							<!-- Custom tabs (Charts with tabs)-->
+							<div class="card">
+								<p class="ng-view"></p>
+							</div>
+							<!-- /.card -->
+
+							<!-- DIRECT CHAT -->
+
+							<!--/.direct-chat -->
+
+							<!-- TO DO List -->
+
+							<!-- /.card -->
+						</section>
+						<!-- /.Left col -->
+						<!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+						<!-- right col -->
+					</div>
+					<!-- /.row (main row) -->
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<strong>Copyright &copy; 2021. Bản quyền thuộc về <a href="">VINA STAR CINEMA</a>.</strong>
+			<div class="float-right d-none d-sm-inline-block">
+				<b>Phiên bản</b> 3.1.0
+			</div>
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- AdminLTE App -->
+	<script src="/assets/dist/js/adminlte.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="/assets/dist/js/pages/dashboard.js"></script>
+
+	<script src="/assets/admin/admin-app.js"></script>
+	<script src="/assets/admin/admins.js"></script>
+	<script src="/assets/admin/sale/sale-ctrl.js"></script>
+	<script src="/assets/admin/account/account-ctrl.js"></script>
+	<script src="/assets/admin/authority/authority-ctrl.js"></script>
+	<script src="/assets/admin/room/room-ctrl.js"></script>
+	<script src="/assets/admin/censor/censor-ctrl.js"></script>
+	<script src="/assets/admin/order/order-ctrl.js"></script>
+	<script src="/assets/admin/show/show-ctrl.js"></script>
+	<script src="/assets/admin/cinema/cinema-ctrl.js"></script>
+	<script src="/assets/admin/food/food-ctrl.js"></script>
+	<script src="/assets/admin/movie/movie-ctrl.js"></script>
+	<script src="/assets/admin/statistics/statistics-ctrl.js"></script>
+	<script src="/assets/admin/coupon_code/coupon-ctrl.js"></script>
+	<script src="/assets/admin/price/price-ctrl.js"></script>
+	<script src="/assets/admin/ticket/ticket-ctrl.js"></script>
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col ">
+			<div class="form-group ">
+				<label>Tên rạp phim</label> <input type="text" ng-model="form.name"
+					class="form-control" placeholder="Tên rạp phim" id="name">
+			</div>
+			<div class="form-group">
+				<label>Địa chỉ</label> <input type="text" class="form-control"
+					ng-model="form.address" placeholder="Địa chỉ" id="address">
+			</div>
+			<div class="form-group">
+				<label>Thành phố</label> <select ng-model="form.city.id"
+					class="form-control col-4" id="city">
+					<option value="">Vui lòng chọn thành phố</option>
+					<option ng-repeat="c in city" ng-value="c.id">{{c.name}}</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<br> <br>
+	<div class="form-group">
+		<button type="button" style="width: 90px"
+			class="btn btn-success font-weight-bold" ng-click="create()"
+			ng-disabled="isEdit">Thêm</button>
+		<button type="button" style="width: 90px"
+			class="btn btn-info font-weight-bold" ng-click="update()"
+			ng-disabled="isLoad">Cập nhật</button>
+		<!-- 
+			<button type="button"
+				class="btn btn-outline-dark border border-danger text-danger font-weight-bold"
+				ng-click="delete(form)" ng-disabled="isLoad">
+				<img alt="" src="/assets/images/trash.png">XÃ³a
+			</button>
+			 -->
+		<button type="button" class="btn btn-warning font-weight-bold"
+			ng-click="reset()" title="Xóa trắng form nhập ?">Mới</button>
+	</div>
+</div>
+<div class="card-footer">Vui lòng nhập thông tin rạp phim</div>

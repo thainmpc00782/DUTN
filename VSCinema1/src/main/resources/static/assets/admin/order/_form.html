@@ -1,0 +1,78 @@
+<meta charset="utf-8">
+<div class="card">
+	<div class="card-header">
+		<div class="card-title row">
+			<div>
+				<button class="btn btn-warning" ng-click="reset()" type="submit">Làm mới</button>
+			</div>
+		</div>
+	</div>
+	<div class="card-body" ng-show="edited">
+		<div class="row">
+			<div class="col-12" style="text-align: center;">
+				<h2 style="font-size: 40px;">VINA STAR CINEMA</h2>
+				<p style="font-size: 30px;">Hóa đơn thanh toán</p>
+			</div>
+			<div class="col-3">
+				<h6>
+					Mã hóa đơn: <strong style="color: red;">{{order.id}}</strong>
+				</h6>
+			</div>
+			<div class="col-3">
+				<h6>Ngày mua: {{order.createdate}}</h6>
+			</div>
+			<div class="col-3">
+				<h6>Tổng tiền: {{order.totalmoney | currency:"":0}} VND</h6>
+			</div>
+			<div class="col-3">
+				<h6>
+					Trạng thái: <strong style="color: red;">{{order.active?'Đã nhận':'Chưa nhận'}}</strong>
+				</h6>
+			</div>
+			<br> <br>
+			<div class="col-3">
+				<h6>
+					Mã khách hàng: <strong style="color: red;">{{order.user.username}}</strong>
+				</h6>
+			</div>
+			<div class="col-3">
+				<h6>Họ tên khách hàng: {{order.user.fullname}}</h6>
+			</div>
+			<div class="col-3">
+				<h6>Số điện thoại: {{order.user.phone}}</h6>
+			</div>
+			<div class="col-3">
+				<h6>Email: {{order.user.email}}</h6>
+			</div>
+		</div>
+		<br>
+		<div style="height: 2px; background-color: black;"></div>
+		<br>
+		<div class="row">
+			<table class="table table-dark">
+				<thead>
+					<tr>
+						<th scope="col">Mã sản phẩm</th>
+						<th scope="col">Tên sản phẩm</th>
+						<th scope="col">Giá</th>
+						<th scope="col">Mô tả chi tiết</th>
+						<th scope="col">Số lượng</th>
+						<th scope="col">Thành tiền</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="ord in orderDetail">
+						<td>{{ord.food.id}}</td>
+						<td>{{ord.food.name}}</td>
+						<td>{{ord.food.price | currency:"":0}} VND</td>
+						<td>{{ord.food.description}}</td>
+						<td>{{ord.quantity}}</td>
+						<td>{{ord.quantity*ord.food.price| currency:"":0}} VND</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="card-footer">Thông tin chi tiết của hóa đơn</div>
+</div>

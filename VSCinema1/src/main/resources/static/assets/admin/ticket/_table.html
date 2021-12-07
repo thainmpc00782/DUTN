@@ -1,0 +1,92 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="col-4 form-group">
+			<select class="form-control" ng-model="pagersize"
+				ng-change="changesize(pagersize)">
+				<option value="">Hiển thị dữ liệu</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+			</select>
+		</div>
+		<div class="form-group col-4">
+			<input class="form-control " type="date">
+		</div>
+		<div class="form-group col-4">
+			<input class="form-control " type="search" placeholder="Tìm kiếm"
+				aria-label="Search" id="myInput" onkeyup="myFunction()">
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="table  table-bordered" id="myTable">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Mã suất chiếu</th>
+				<th scope="col">Tên phim</th>
+				<th scope="col">Ngày chiếu</th>
+				<th scope="col">Giờ chiếu</th>
+				<th scope="col">Phòng chiếu</th>
+				
+				<th scope="col">Trạng thái</th>
+				<th scope="col">Chi tiết</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="p in pager.items">
+				<th scope="row">{{p.id}}</th>
+				<td>{{p.show.id}}</td>
+				<td>{{p.show.movie.name}}</td>
+				<td>{{p.show.showDate}}</td>
+				<td>{{p.show.startTime}}</td>
+				<td>{{p.show.room.name}}</td>
+				
+				<td>{{p.order.active ?'Đã chiếu' : 'Chưa chiếu'}}</td>
+				<td><button type="button" ng-click="editTicket(p)"
+						class="btn btn-success   font-weight-bold">Xem</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button type="button" ng-click="pager.first()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button type="button" ng-click="pager.pre()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button type="button" ng-click="pager.next()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button type="button" ng-click="pager.last()"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>
+<div class="card-footer">Danh sách vé đã bán</div>

@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row ">
+		<div class="col-4 form-group">
+			<select ng-change="findRapFromCity()" ng-model="room.cinema.city.id"
+				class="form-control ">
+				<option value="">Tỉnh / Thành phố</option>
+				<option ng-repeat="c in cities" ng-value="c.id">{{c.name}}</option>
+			</select>
+		</div>
+		<div class="col-4 form-group">
+			<select ng-model="search.cinema.id" class="form-control"
+				id="exampleFormControlSelect1">
+				<option value="">Rạp phim</option>
+				<option ng-repeat="c in cinemas" ng-value="c.id">{{c.name}}</option>
+			</select>
+		</div>
+		<input class="form-control  col-4 " type="search" placeholder="Tìm kiếm"
+			ng-model="search.name" aria-label="Search">
+	</div>
+</div>
+
+<div class="card-body">
+	<table class="table  table-bordered">
+		<thead>
+			<tr>
+				<th>Id Phòng</th>
+				<th>Tên phòng</th>
+				<th>Tỉnh / Thành phố</th>
+				<th>Tên rạp</th>
+				<th>Trạng thái</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in pager.items | filter:search">
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.cinema.city.name}}</td>
+				<td>{{item.cinema.name}}</td>
+				<td>{{item.activity?'Hoạt động':'Bảo trì'}}</td>
+				<td><button ng-click="edit(item)" class="btn btn-success"
+						style="width: 100px">Tùy chỉnh</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="card-footer clearfix">
+
+	<button type="button" ng-click="pager.first()"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-hand-point-left"></i>
+	</button>
+	<button type="button" ng-click="pager.prev()"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-arrow-circle-left"></i>
+	</button>
+	<button class="btn btn-primary">{{pager.page +1}} of
+		{{pager.count}}</button>
+	<button type="button" ng-click="pager.next()"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-arrow-circle-right"></i>
+	</button>
+	<button type="button" ng-click="pager.last()"
+		class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+		<i class="fas fa-hand-point-right"></i>
+	</button>
+</div>
+
+<div class="card-footer">Danh sách phòng</div>

@@ -1,0 +1,103 @@
+.bodyA{
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+}
+.movie_card {
+	color: #fff;
+	height: 390px;
+	margin: 50px auto;
+	display: flex;
+  max-width: 100%;
+	background: linear-gradient(#373B44, #4286f4);
+	box-shadow: 0 0 40px rgba(0,0,0,0.3);
+}
+
+.left {
+	width: 80%;
+}
+
+.datails {
+	width: 90%;
+	padding: 30px;
+	margin-top: -25px;
+}
+.c_right img {
+	height: 390px;
+  width:100%;
+}
+.head {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.rated, .year, .genre, .time {
+	color: #fff;
+	padding: 10px;
+	font-weight: bold;
+	border-radius: 15px;
+}
+
+.rated {
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.568);
+}
+.a {
+	color: black;
+	display: block;
+	text-decoration: none;
+	outline: none;
+}
+.buttons {
+	margin-left: -10px;
+}
+.button, .rated, .play_btn{
+	background: linear-gradient(#b24591c9, #f15f7ac4);
+}
+.button {
+	color: #fff;
+	border: none;
+	padding: 20px;
+	outline: none;
+	font-size: 12px;
+	margin-top: 30px;
+	margin-left: 5px;
+	border-radius: 12px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.616);
+	cursor: pointer;
+	transition: 200ms ease-in-out;
+}
+
+
+.play_btn {
+	height: 100%;
+	margin: -394px auto;
+	position: relative;
+	text-align: center;
+	background: linear-gradient(#fc5c7c65, #6a82fb5b);
+	box-shadow: 0 0 50px rgba(0,0,0,0.2);
+}
+.fa-play-circle {
+	color: black;
+	font-size: 160px;
+	margin-top: 110px;
+	animation: bounce 1s infinite;
+}
+
+.credits{
+  font-size: 20px;
+}
+@keyframes bounce {
+	from{opacity: 1;}
+	to{opacity: 0;}
+}
+@media (max-width: 700px){
+  .movie_card{
+    display: block;
+  }
+}
+@media (max-width: 600px){
+  button{
+    display: none;
+  }
+}

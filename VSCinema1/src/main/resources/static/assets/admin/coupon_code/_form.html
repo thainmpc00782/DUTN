@@ -1,0 +1,65 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-4">
+			<div class="container-fluid">
+				<img class="card-img-top" alt="loading"
+					src="/assets/images/coupon-code-listing.png">
+			</div>
+		</div>
+		<div class="col-4">
+			<label class="" for="exampleInputCode">Mã giảm giá</label>
+			<div class="form-group row ">
+				<div class="col-7">
+					<input type="text" ng-model="coupon.id" class="form-control">
+				</div>
+				<button ng-click="autoCreate()" class="btn btn-success col-4">Tái tạo mã</button>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputCreateDate">Ngày tạo</label>
+				<div class="form-control">{{coupon.createdate|date:'dd/MM/yyyy'}}</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputExpiry">Hạn sử dụng</label> <input
+					ng-model="coupon.expiry" type="date" class="form-control">
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-group">
+				<label for="exampleInputDiscount">Giảm giá</label> <input
+					ng-model="coupon.discount" type="text" class="form-control"
+					placeholder="%">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputQuantity">Số lượng nhập</label> <input
+					ng-model="coupon.quantity" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="mr-sm-2" for="exampleInputActivity">Trạng thái</label>
+				<div class="form-check form-check-inline">
+					<input ng-model="coupon.activity" class="form-check-input"
+						type="radio" name="inlineRadioOptions" id="inlineRadio1"
+						ng-value=true> <label class="form-check-label"
+						for="inlineRadio1">Chưa sử dụng</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input ng-model="coupon.activity" class="form-check-input"
+						type="radio" name="inlineRadioOptions" id="inlineRadio2"
+						ng-value="false"> <label class="form-check-label"
+						for="inlineRadio2">Đã sử dụng</label>
+				</div>
+			</div>
+		</div>
+		<br> <br />
+	</div>
+</div>
+<div class="form-group">
+	<button style="width: 90px" type="button" ng-click="create()"
+		class="btn btn-success font-weight-bold">Thêm</button>
+	<button style="width: 90px" type="button" ng-click="update()"
+		class="btn btn-info font-weight-bold">Cập nhật</button>
+	<button type="button" ng-click="reset()"
+		class="btn btn-warning font-weight-bold">Mới</button>
+</div>
+
+<div class="card-footer">Vui lòng nhâp thông tin của mã giảm giá</div>

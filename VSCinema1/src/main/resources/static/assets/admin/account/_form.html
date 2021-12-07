@@ -1,0 +1,100 @@
+<meta charset="utf-8">
+<div class="card-body">
+	<div class="row">
+		<div class="col-3">
+			<div class="border p-3">
+				<label for="image"> <img style="height: 300px;"
+					ng-src="{{'/assets/images/' + form.image}}" alt=""
+					class="img-fluid">
+				</label>
+
+				<div class="input-group mb-3 mt-3">
+					<div>Hình ảnh:</div>
+					<input ng-model="form.image" type="file" id="image"
+						class="form-control"
+						onchange="angular.element(this).scope().imageChange(this.files)">
+				</div>
+			</div>
+		</div>
+		<div class="col-5 ">
+			<div class="form-group ">
+				<label>Tài khoản</label> <input ng-model="form.username"
+					ng-disabled="isLoad" type="text" id="username"
+					ng-class="error.name?'border-danger':' '" class="form-control"
+					placeholder="Tài khoản"> <span class="text-danger"
+					ng-show="error.name">{{error.username}}</span>
+			</div>
+			<div class="form-group ">
+				<label>Họ tên</label> <input ng-model="form.fullname" type="text"
+					id="fullname" ng-class="error.fullname?'border-danger':' '"
+					placeholder="Họ tên" class="form-control"> <span
+					class="text-danger" ng-show="error.fullname">{{error.fullname}}</span>
+			</div>
+			<div class="form-group">
+				<label>Mật khẩu</label> <input ng-model="form.password"
+					id="password" class="form-control" type="password"
+					ng-class="error.password?'border-danger':' '"
+					placeholder="Mật khẩu"> <span class="text-danger"
+					ng-show="error.password">{{error.password}}</span>
+			</div>
+			<div class="form-group">
+				<label>Số điện thoại</label> <input ng-model="form.phone"
+					type="text" id="phone" class="form-control"
+					ng-class="error.phone?'border-danger':' '"
+					placeholder="Số điện thoại"> <span class="text-danger"
+					ng-show="error.phone">{{error.phone}}</span>
+			</div>
+			Trạng thái:
+			<div class="form-check form-check-inline">
+				<label> <input ng-model="form.activity" type="radio"
+					class="form-check-input" ng-value="true">Hoạt động
+				</label> <br> <label> <input ng-model="form.activity"
+					type="radio" class="form-check-input" ng-value="false">Không
+					hoạt động
+				</label>
+			</div>
+		</div>
+		
+		<div class="col-4">
+			<div class="form-group">
+				<label>Email</label> <input ng-model="form.email" type="text"
+					id="email" class="form-control"
+					ng-class="error.email?'border-danger':' '" placeholder="Email">
+				<span class="text-danger" ng-show="error.email">{{error.email}}</span>
+			</div>
+			<div class="form-group">
+				<label>CMND</label> <input ng-model="form.cmnd" type="text"
+					id="cmnd" class="form-control"
+					ng-class="error.cmnd?'border-danger':' '" placeholder="Chứng minh nhân dân">
+				<span class="text-danger" ng-show="error.cmnd">{{error.cmnd}}</span>
+			</div>
+			<div class="form-group">
+				<label>Địa chỉ</label> <input ng-model="form.address"
+					type="text" id="address" class="form-control"
+					ng-class="error.address?'border-danger':' '" placeholder="Địa chỉ">
+				<span class="text-danger" ng-show="error.address">{{error.address}}</span>
+			</div>
+			Giới tính:
+			<div class="form-check form-check-inline">
+				<label> <input ng-model="form.gender" type="radio"
+					class="form-check-input" ng-value="true">Nam
+				</label> <br> <label> <input ng-model="form.gender"
+					type="radio" class="form-check-input" ng-value="false">Nữ
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br />
+<div class="form-group" style="margin-left: 20px;">
+	<button type="button" ng-click="create()" style="width: 90px"
+		class="btn btn-success font-weight-bold">Thêm</button>
+	<button type="button" ng-click="update()" style="width: 90px"
+		class="btn btn-info font-weight-bold">Cập nhật</button>
+	<button type="button" ng-click="delete(form.username)"
+		class="btn btn-danger font-weight-bold">Xóa</button>
+	<button type="button" ng-click="reset()"
+		class="btn btn-warning font-weight-bold">Mới</button>
+</div>
+<div class="card-footer">Vui lòng nhập thông tin tài khoản</div>

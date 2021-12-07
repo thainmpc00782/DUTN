@@ -1,0 +1,95 @@
+<meta charset="utf-8">
+<div class="card-header">
+	<div class="card-title row">
+		<div class="form-group col-4">
+			<select ng-change="findRapFromCity()" ng-model="city.id"
+				class="form-control">
+				<option value="">Tỉnh / Thành phố</option>
+				<option ng-repeat="c in cities" ng-value="c.id">{{c.name}}</option>
+			</select>
+		</div>
+		<div class="form-group col-4">
+			<select ng-model="search.room.cinema.id" class="form-control"
+				id="exampleFormControlSelect1">
+				<option value="">Rạp chiếu</option>
+				<option ng-repeat="c in cinemas" ng-value="c.id">{{c.name}}</option>
+			</select>
+		</div>
+
+		<div class="form-group col-4">
+			<input class="form-control " type="text" id="myInput"
+				onkeyup="myFunction()" placeholder="Ngày chiếu"
+				aria-label="Tìm kiếm ngày chiếu">
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<table class="table table-bordered" id="myTable">
+		<tr>
+			<th>Id</th>
+			<th>Phim</th>
+			<th>Rạp</th>
+			<th>Phòng</th>
+			<th>Ngày chiếu</th>
+			<th>Giờ bắt đầu</th>
+			<th>Giờ kết thúc</th>
+			<th>Trạng thái</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="item in pager.items | filter:search">
+			<td>{{item.id}}</td>
+			<td>{{item.movie.name}}</td>
+			<td>{{item.room.cinema.name}}</td>
+			<td>{{item.room.name}}</td>
+			<td>{{item.showDate | date: 'dd/MM/yyyy'}}</td>
+			<td>{{item.startTime}}</td>
+			<td>{{item.endTime}}</td>
+			<td ng-if="item.activity == 1">Tiếp nhận</td>
+			<td ng-if="item.activity == 2">Đã hủy</td>
+			<td ng-if="item.activity == 3">Đã duyệt</td>
+			<td><a class="btn btn-success" ng-click="edit(item)"
+				style="width: 100px">Tùy chỉnh</a></td>
+		</tr>
+	</table>
+	<br />
+	<div style="float: right;">
+		<button ng-click="pager.first()" type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-left"></i>
+		</button>
+		<button ng-click="pager.prev()" type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-left"></i>
+		</button>
+		<button ng-click="pager.next()" type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-arrow-circle-right"></i>
+		</button>
+		<button ng-click="pager.last()" type="button"
+			class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+			<i class="fas fa-hand-point-right"></i>
+		</button>
+	</div>
+</div>
+<div class="card-footer">Danh sách suất chiếu</div>
+
+<script>
+	function myFunction() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[4];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>

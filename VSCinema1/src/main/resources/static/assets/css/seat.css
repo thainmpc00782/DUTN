@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.body {
+  background-color: #fff;
+  width: 95%;
+  margin-left: 15px;
+  display: flex;
+}
+
+.containerA h1 {
+  font-size: 18px;
+  line-height: 30px;
+  color: #f0eff3;
+  text-align: center;
+  position: relative;
+}
+
+.rowA {
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr  1fr  1fr  1fr 1fr;
+}
+.rowA label {
+  padding: 10px;
+  margin: 1px;
+  display: flex;
+}
+
+.rowA label input[type="radio"] {
+  display: none;
+}
+
+.rowA label .icon-box {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 9px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #353746;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 21px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+}
+
+.rowA label input[type="radio"]:checked ~ .icon-box {
+  background: linear-gradient(138deg, #da2c4d, #f8ab37);
+  color: #fff;
+}
+
+.rowA label .icon-box span {
+  font-size: 10px;
+}
+
+.btn3d {
+    transition:all .08s linear;
+    position:relative;
+    outline:medium none;
+    -moz-outline-style:none;
+    border:0px;
+    margin-right:10px;
+    margin-top:15px;
+}
+.btn3d:focus {
+    outline:medium none;
+    -moz-outline-style:none;
+}
+.btn3d:active {
+    top:9px;
+}
+
+.btn-success {
+	width: 70px;
+	font-size: 13px;
+    box-shadow:0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#5cb85c;
+}
+
+.btn-info {
+	width: 70px;
+	font-size: 13px;
+    box-shadow:0 0 0 1px #5bc0de inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #46b8da, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#5bc0de;
+}
+.btn-warning {
+	width: 70px;
+	font-size: 13px;
+    box-shadow:0 0 0 1px #f0ad4e inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #eea236, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#f0ad4e;
+}
+.btn-danger {
+	width: 70px;
+	font-size: 13px;
+    box-shadow:0 0 0 1px #c63702 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #C24032, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#c63702;
+}

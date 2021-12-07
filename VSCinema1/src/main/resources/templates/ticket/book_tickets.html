@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đặt vé</title>
+</head>
+<body>
+	<div class="form-checkout">
+		<section class="w3l-grids">
+			<br> <br> <br>
+			<div class="grids-main">
+				<div class="container col-sm-12"
+					style="background-color: black; height: 3rem; text-align: center;">
+					<div style="height: 8px;"></div>
+					<h4 style="color: white">
+						CHỌN GHẾ
+					</h4>
+				</div>
+			</div>
+			<br>
+			<h4 class="screen mx-auto" style="width: 200px; text-align: center;">Màn hình</h4>
+			<div class="panel panel-default  col-sm-10 offset-1">
+				<div class="panel-body">
+					<div class="row bodySEAT">
+						<div class="col-12 rowA">
+							<label class="form-check form-check-inline" ng-repeat="position in positions">
+								<div class="icon-boxB1" ng-if="position.seat.id != null && position.value == 1 && position.seat.type.id == 2" ng-click="add(position)">
+									<span>{{position.seat.name}}</span>
+								</div>
+								<div class="icon-boxB2" ng-if="position.seat.id != null && position.value == 1 && position.seat.type.id == 1" ng-click="add(position)">
+									<span>{{position.seat.name}}</span>
+								</div>
+								<div class="icon-boxB3" ng-if="position.seat.id != null && position.value == 2" ng-click="add(position)">
+									<span>{{position.seat.name}}</span>
+								</div>
+								<div class="icon-boxB4" ng-if="position.seat.id != null && position.value == 3">
+									<span>{{position.seat.name}}</span>
+								</div>
+							</label>
+						</div>
+					</div>
+					<div class="khung col-sm-12 bodyA" style="height: 20rem; background-color: #fff;">
+						<div class="wrapper">
+							<div class="movie_card">
+								<div class="left">
+									<div class="datails">
+										<br>
+										<h3>{{show.movie.name}}</h3>
+										<br>
+										<div class="head">
+											<p class="rated">{{show.room.name}}</p>
+											<p class="year">GHẾ: <b ng-repeat="seat in seats2">{{seat.name}}</b></p>
+											<p class="genre">Suất chiếu: {{show.showDate|date:'dd-MM-yyyy'}} {{show.startTime}}</p>
+											<p class="time"></p>
+										</div>
+										<br>
+										<a style="color: black;">{{show.room.cinema.name}}</a>
+										<p class="description">{{show.room.cinema.address}}</p>
+										<div class="buttons">
+											<button class="button" ng-click="previous()">
+												<i><<</i> 
+											</button>
+											<button class="buttonMoney">
+												<i>TỔNG TIỀN: {{totalSeat|number}} VND</i> 
+											</button>
+											
+											<button class="button" ng-click="next()">
+												<i>>></i>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="c_right">
+									<img ng-src="/assets/images/image/movies/posters/{{show.movie.poster}}" alt="Movie IMG">
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- move top -->
+	<button onclick="topFunction()" id="movetop" title="Go to top">
+		<span class="fa fa-arrow-up" aria-hidden="true"></span>
+	</button>
+
+	<script>
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20
+					|| document.documentElement.scrollTop > 20) {
+				document.getElementById("movetop").style.display = "block";
+			} else {
+				document.getElementById("movetop").style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<!-- /move top -->
+
+</body>
+
+</html>
+

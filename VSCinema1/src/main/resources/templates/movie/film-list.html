@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout.html :: dynamic(~{::body})}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danh sách phim</title>
+</head>
+
+<body>
+	<section class="w3l-grids">
+		<div class="grids-main py-5">
+			<div class="container py-lg-4">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title" th:text="${title1}"></h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4>
+								<a class="show-title" th:href="@{|/movie/${url}|}" th:text="${title2}"></a> 
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="w3l-populohny-grids">
+					<div class="item vhny-grid" th:each="s: ${movies}">
+						<div class="box16 mb-0">
+							<a th:href="@{|/movie/film-detail/${s.id}|}">
+								<figure>
+									<img class="fluid"
+										th:src="@{|/assets/images/image/movies/posters/${s.poster}|}" alt="">
+								</figure>
+								<div class="box-content">
+									<h3 class="title">[[*{s.name}]]</h3>
+									<h4>
+										<span class="post" style="font-size: 15px"><span
+											class="fa fa-clock-o" style="font-size: 17px"> </span>
+											[[${#dates.hour(s.runningTime)}]] giờ
+											[[${#dates.minute(s.runningTime)}]] phút</span>
+									</h4>
+								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<meta charset="utf-8">
+<div class="card">
+	<div class="card-header">
+		<div class="card-title">
+			<h5>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+					fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+						d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    <path
+						d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                                    <path
+						d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                                  </svg>
+				QUẢN LÝ THÔNG TIN GIÁ BÁN VÉ
+			</h5>
+		</div>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-6">
+				<br>
+				<div class="container-fluid">
+					<br> <img class="card-img-top" alt="loading"
+						src="/assets/images/baprangbo.jpg">
+				</div>
+			</div>
+			<div class="col-6">
+				<br> <br> <br> <br>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Giá bán</label> <input
+						type="text" ng-model="price.price" class="form-control">
+				</div>
+				<br>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Ngày tạo</label>
+					<div class="form-control">{{price.createDate |
+						date:'dd/MM/yyyy'}}</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Hạn sử dụng</label> <input
+						type="date" ng-model="price.expiry" class="form-control">
+				</div>
+				<br>
+				<div class="form-group">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input ng-model="price.activity" ng-value="true" type="radio"
+							id="customRadioInline1" name="customRadioInline1"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadioInline1">Hoạt động</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input ng-model="price.activity" ng-value="false" type="radio"
+							id="customRadioInline2" name="customRadioInline1"
+							class="custom-control-input"> <label
+							class="custom-control-label" for="customRadioInline2">Ngưng hoạt động</label>
+					</div>
+				</div>
+				<br> <br>
+				<div class="form-group">
+					<button ng-click="create()"
+						class="btn btn-outline-dark border border-primary text-primary font-weight-bold">
+						<img alt="" src="/assets/images/edit.png"> Thêm
+					</button>
+					<button ng-click="update()"
+						class="btn btn-outline-dark border border-warning text-warning font-weight-bold">
+						<img alt="" src="/assets/images/write.png"> Cập nhật
+					</button>
+					<button type="button"
+						class="btn btn-outline-dark border border-success text-success font-weight-bold">
+						<img alt="" src="/assets/images/updated.png">Mới
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-footer">Vui lòng nhập thông tin giá bán vé</div>
+</div>
